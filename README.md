@@ -80,4 +80,4 @@ Para publicar una nueva versión de la biblioteca:
 
 ## Licencia
 
-MIT
+Propietaria. Todos los derechos reservados. Este software es propiedad de QIDA y su uso, modificación o distribución sin autorización expresa está prohibido.
