@@ -1,0 +1,360 @@
+/* Importar las variables CSS de los tokens */
+@import "./dist/variables.css";
+/* Importar las fuentes */
+@import "../fonts/fonts.css";
+
+/* Estilos para la página de tokens */
+.token-page {
+  font-family:
+    var(--typography-fontFamily), "Helvetica Neue", Arial, sans-serif;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px;
+  color: var(--colors-neutral-900);
+}
+
+h1 {
+  font-size: var(--typography-fontSizes-headline-lg);
+  font-weight: var(--typography-fontWeights-bold);
+  margin-bottom: 32px;
+  color: var(--colors-primary-700);
+}
+
+h2 {
+  font-size: var(--typography-fontSizes-headline-sm);
+  font-weight: var(--typography-fontWeights-bold);
+  margin: 24px 0 16px;
+  color: var(--colors-primary-600);
+}
+
+/* Estilos para la sección de colores */
+.token-category {
+  margin-bottom: 48px;
+}
+
+.token-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.token-item {
+  border: 1px solid var(--colors-neutral-200);
+  border-radius: var(--borderRadius-sm);
+  overflow: hidden;
+  box-shadow: var(--elevations-sm-shadow1), var(--elevations-sm-shadow2);
+}
+
+.color-preview {
+  height: 120px;
+}
+
+.token-details {
+  padding: 12px;
+  background-color: var(--colors-neutral-50);
+}
+
+.token-name {
+  font-weight: var(--typography-fontWeights-bold);
+  margin-bottom: 4px;
+}
+
+.token-value {
+  font-family: monospace;
+  font-size: 12px;
+  color: var(--colors-neutral-600);
+  margin-bottom: 4px;
+}
+
+.token-css-var {
+  font-family: monospace;
+  font-size: 12px;
+  color: var(--colors-primary-500);
+}
+
+/* Estilos para la sección de elevaciones */
+.elevation-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 24px;
+}
+
+.elevation-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.elevation-preview {
+  height: 120px;
+  background-color: white;
+  border-radius: var(--borderRadius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.elevation-label {
+  font-weight: var(--typography-fontWeights-bold);
+  color: var(--colors-neutral-500);
+}
+
+.token-value.small {
+  font-size: 10px;
+  word-break: break-all;
+}
+
+/* Estilos para la sección de breakpoints */
+.breakpoint-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 24px;
+}
+
+.breakpoint-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.breakpoint-preview {
+  height: 80px;
+  background-color: var(--colors-primary-100);
+  border-radius: var(--borderRadius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.breakpoint-value {
+  font-weight: var(--typography-fontWeights-bold);
+  color: var(--colors-primary-700);
+}
+
+/* Estilos para la sección de grid */
+.grid-container {
+  margin-bottom: 32px;
+  border: 1px solid var(--colors-neutral-200);
+  border-radius: var(--borderRadius-sm);
+  overflow: hidden;
+}
+
+.grid-header {
+  background-color: var(--colors-neutral-100);
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--colors-neutral-200);
+}
+
+.grid-header h2 {
+  margin: 0;
+  font-size: var(--typography-fontSizes-title-md);
+}
+
+.grid-preview {
+  padding: 24px;
+  background-color: white;
+  position: relative;
+}
+
+.grid-example {
+  display: grid;
+  width: calc(100% - 64px); /* Ajustamos el ancho para acomodar los márgenes */
+  margin: 0 auto;
+}
+
+.grid-cell {
+  background-color: var(--colors-primary-100);
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: var(--typography-fontWeights-bold);
+  color: var(--colors-primary-700);
+  border-radius: var(--borderRadius-xs);
+}
+
+.grid-info {
+  padding: 16px;
+  background-color: var(--colors-neutral-50);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.grid-spec {
+  display: flex;
+  align-items: center;
+}
+
+.grid-spec-label {
+  font-weight: var(--typography-fontWeights-bold);
+  margin-right: 8px;
+}
+
+.grid-spec-value {
+  font-family: monospace;
+  color: var(--colors-primary-500);
+}
+
+/* Estilos para la sección de tipografía */
+.typography-section {
+  margin-bottom: 48px;
+}
+
+.typography-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.typography-item {
+  border: 1px solid var(--colors-neutral-200);
+  border-radius: var(--borderRadius-sm);
+  overflow: hidden;
+}
+
+.typography-preview {
+  padding: 24px;
+  background-color: white;
+  border-bottom: 1px solid var(--colors-neutral-200);
+}
+
+.font-family-preview {
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+
+.font-weight-preview {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.line-height-preview {
+  border: 1px dashed var(--colors-neutral-300);
+  padding: 16px;
+  background-color: var(--colors-neutral-50);
+}
+
+.line-height-text {
+  max-width: 300px;
+}
+
+.typography-info {
+  padding: 12px;
+  background-color: var(--colors-neutral-50);
+}
+
+.typography-spec {
+  display: flex;
+  margin-bottom: 4px;
+}
+
+.typography-spec-label {
+  font-weight: var(--typography-fontWeights-bold);
+  width: 80px;
+}
+
+.typography-spec-value {
+  font-family: monospace;
+  color: var(--colors-primary-500);
+}
+
+/* Estilos para la sección de Layout Patterns */
+.layout-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-bottom: 32px;
+}
+
+.layout-item {
+  border: 1px solid var(--colors-neutral-200);
+  border-radius: var(--borderRadius-sm);
+  overflow: hidden;
+  box-shadow: var(--elevations-sm-shadow1), var(--elevations-sm-shadow2);
+  width: 100%;
+}
+
+.layout-preview {
+  padding: 24px;
+  background-color: white;
+  border-bottom: 1px solid var(--colors-neutral-200);
+  overflow: hidden;
+}
+
+.layout-container {
+  display: grid;
+  width: 100%;
+  gap: 12px;
+  margin: 0 auto;
+}
+
+.layout-block {
+  background-color: var(--colors-primary-100);
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: var(--typography-fontWeights-bold);
+  color: var(--colors-primary-700);
+  border-radius: var(--borderRadius-xs);
+  font-size: 14px;
+}
+
+.layout-info {
+  padding: 16px;
+  background-color: var(--colors-neutral-50);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.layout-spec {
+  display: flex;
+  align-items: center;
+}
+
+.layout-spec-label {
+  font-weight: var(--typography-fontWeights-bold);
+  width: 100px;
+  font-size: 16px;
+}
+
+.layout-spec-value {
+  font-family: monospace;
+  color: var(--colors-primary-500);
+  font-size: 16px;
+}
+
+/* Estilos mejorados para Border Radius */
+.radius-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.radius-item {
+  border: 1px solid var(--colors-neutral-200);
+  border-radius: var(--borderRadius-sm);
+  overflow: hidden;
+  box-shadow: var(--elevations-sm-shadow1), var(--elevations-sm-shadow2);
+}
+
+.radius-preview {
+  height: 120px;
+  width: calc(100% - 32px);
+  background-color: var(--colors-primary-100);
+  margin: 16px;
+  border: 2px solid var(--colors-primary-500);
+}
+
+/* Estilo específico para el radius-full para que se muestre como un círculo */
+.radius-preview-full {
+  height: 120px;
+  width: 120px;
+  background-color: var(--colors-primary-100);
+  margin: 16px auto;
+  border: 2px solid var(--colors-primary-500);
+  border-radius: 9999px;
+}
