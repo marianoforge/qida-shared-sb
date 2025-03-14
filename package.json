@@ -1,6 +1,6 @@
 {
   "name": "qida-design-tokens-lib",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Biblioteca de componentes y tokens de diseño compartidos",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
