@@ -5,7 +5,7 @@ Biblioteca de componentes y tokens de diseño compartidos para proyectos de QIDA
 ## Instalación
 
 ```bash
-npm install @qida/design-tokens
+npm install qida-design-tokens-lib
 ```
 
 ## Uso
@@ -13,7 +13,7 @@ npm install @qida/design-tokens
 ### Importar tokens de diseño
 
 ```jsx
-import { tokens } from "@qida/design-tokens";
+import { tokens } from "qida-design-tokens-lib";
 
 // Usar tokens en tu código
 console.log(tokens.global.colors.primary[500]); // #2C8970
@@ -23,7 +23,7 @@ console.log(tokens.global.colors.primary[500]); // #2C8970
 
 ```jsx
 // En tu archivo principal
-import "@qida/design-tokens/dist/dist/styles.css";
+import "qida-design-tokens-lib/dist/dist/styles.css";
 
 // Ahora puedes usar las variables CSS en tus componentes
 // --colors-primary-500: #2C8970;
@@ -32,7 +32,7 @@ import "@qida/design-tokens/dist/dist/styles.css";
 ### Usar componentes
 
 ```jsx
-import { Button } from "@qida/design-tokens";
+import { Button } from "qida-design-tokens-lib";
 
 function App() {
   return (
@@ -81,4 +81,3 @@ Para publicar una nueva versión de la biblioteca:
 ## Licencia
 
 MIT
-# qida-shared-sb

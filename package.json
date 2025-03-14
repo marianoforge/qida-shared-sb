@@ -1,5 +1,5 @@
 {
-  "name": "@qida/design-tokens",
+  "name": "qida-design-tokens-lib",
   "version": "1.0.0",
   "description": "Biblioteca de componentes y tokens de diseño compartidos",
   "main": "dist/index.js",
