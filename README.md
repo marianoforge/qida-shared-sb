@@ -81,3 +81,4 @@ Para publicar una nueva versión de la biblioteca:
 ## Licencia
 
 MIT
+# qida-shared-sb
