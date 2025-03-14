@@ -32,12 +32,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/your-username/design-tokens.git"
+    "url": "https://github.com/marianoforge/qida-shared-sb"
   },
   "bugs": {
-    "url": "https://github.com/your-username/design-tokens/issues"
+    "url": "https://github.com/marianoforge/qida-shared-sb/issues"
   },
-  "homepage": "https://github.com/your-username/design-tokens#readme",
+  "homepage": "https://github.com/marianoforge/qida-shared-sb#readme",
   "dependencies": {
     "react": ">=17.0.0",
     "react-dom": ">=17.0.0",
