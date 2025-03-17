@@ -279,6 +279,15 @@ export const tokens = {
           "borderRadius": "{global.borderRadius.md}"
         }
       }
-    }
+    },
+    "accordion": {},
+    "avatars": {
+      "sizes": {
+        "sm": {},
+        "md": {},
+        "lg": {}
+      }
+    },
+    "alert_toast": {}
   }
 };

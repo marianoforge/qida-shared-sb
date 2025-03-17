@@ -1,0 +1,54 @@
+/* Importar las variables CSS de los tokens */
+@import "../../tokens/dist/variables.css";
+/* Importar las fuentes */
+@import "../../fonts/fonts.css";
+
+.accordion {
+  border: 1px solid var(--colors-neutral-300);
+  border-radius: var(--borderRadius-sm);
+  background-color: var(--colors-neutral-50);
+  margin-bottom: var(--spacing-16);
+  overflow: hidden;
+}
+
+.accordion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-16);
+  cursor: pointer;
+  background-color: var(--colors-neutral-50);
+  transition: background-color 0.2s ease;
+}
+
+.accordion-header:hover {
+  background-color: var(--colors-neutral-100);
+}
+
+.accordion-title {
+  margin: 0;
+  font-size: var(--typography-fontSizes-body-lg);
+  font-weight: var(--typography-fontWeights-medium);
+  color: var(--colors-neutral-900);
+}
+
+.accordion-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--colors-neutral-600);
+  transition: transform 0.3s ease;
+}
+
+.accordion-icon.open {
+  transform: rotate(180deg);
+}
+
+.accordion-content {
+  padding: var(--spacing-16);
+  font-size: var(--typography-fontSizes-body-md);
+  line-height: var(--typography-lineHeights-body);
+  color: var(--colors-neutral-800);
+  border-top: 1px solid var(--colors-neutral-300);
+  background-color: var(--colors-base-white);
+}

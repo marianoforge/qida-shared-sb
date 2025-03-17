@@ -1,14 +1,14 @@
-import * as StyleDictionaryModule from 'style-dictionary';
-import path from 'path';
-import { fileURLToPath } from 'url';
-import fs from 'fs';
+import * as StyleDictionaryModule from "style-dictionary";
+import path from "path";
+import { fileURLToPath } from "url";
+import fs from "fs";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Leer el archivo de tokens
-const tokensPath = path.resolve(__dirname, 'figma-tokens.json');
-const tokensContent = fs.readFileSync(tokensPath, 'utf8');
+const tokensPath = path.resolve(__dirname, "figma-tokens.json");
+const tokensContent = fs.readFileSync(tokensPath, "utf8");
 const tokens = JSON.parse(tokensContent);
 
 // Función para generar CSS variables
@@ -21,16 +21,16 @@ function generateCSSVariables(tokens) {
 :root {\n`;
 
   // Función recursiva para procesar tokens
-  function processTokens(obj, prefix = '') {
+  function processTokens(obj, prefix = "") {
     for (const key in obj) {
       const fullKey = prefix ? `${prefix}-${key}` : key;
 
       if (obj[key].value !== undefined) {
         // Es un token con valor
         css += `  --${fullKey}: ${obj[key].value};\n`;
-      } else if (typeof obj[key] === 'object') {
+      } else if (typeof obj[key] === "object") {
         // Verificar si es un objeto de sombra
-        if (key === 'shadow1' || key === 'shadow2') {
+        if (key === "shadow1" || key === "shadow2") {
           // Procesar objeto de sombra
           const shadow = obj[key];
           if (
@@ -54,6 +54,12 @@ function generateCSSVariables(tokens) {
   // Procesar tokens globales
   if (tokens.global) {
     for (const category in tokens.global) {
+      // Caso especial para la tipografía
+      if (category === "typography" && tokens.global.typography.fontFamily) {
+        // Asegurarse de que fontFamily se procese correctamente
+        css += `  --typography-fontFamily: ${tokens.global.typography.fontFamily.value};\n`;
+      }
+
       processTokens(tokens.global[category], category);
     }
   }
@@ -70,11 +76,11 @@ function generateCSSVariables(tokens) {
             if (value) {
               // Reemplazar referencias a otros tokens
               let finalValue = value;
-              if (value.startsWith('{') && value.endsWith('}')) {
+              if (value.startsWith("{") && value.endsWith("}")) {
                 const reference = value
                   .substring(1, value.length - 1)
-                  .replace(/\./g, '-')
-                  .replace(/^global-/, ''); // Eliminar el prefijo 'global-'
+                  .replace(/\./g, "-")
+                  .replace(/^global-/, ""); // Eliminar el prefijo 'global-'
                 finalValue = `var(--${reference})`;
               }
               css += `  --${component}-${variant}-${state}: ${finalValue};\n`;
@@ -91,12 +97,12 @@ function generateCSSVariables(tokens) {
             if (value) {
               // Reemplazar referencias a otros tokens
               let finalValue = value;
-              if (value.includes('{') && value.includes('}')) {
+              if (value.includes("{") && value.includes("}")) {
                 // Manejar múltiples referencias en un valor (como en padding)
                 finalValue = value.replace(/\{([^}]+)\}/g, (match, p1) => {
                   return `var(--${p1
-                    .replace(/\./g, '-')
-                    .replace(/^global-/, '')})`;
+                    .replace(/\./g, "-")
+                    .replace(/^global-/, "")})`;
                 });
               }
               css += `  --${component}-${size}-${prop}: ${finalValue};\n`;
@@ -107,7 +113,7 @@ function generateCSSVariables(tokens) {
     }
   }
 
-  css += '}\n';
+  css += "}\n";
   return css;
 }
 
@@ -116,7 +122,7 @@ function generateJSTokens(tokens) {
   const jsTokens = {};
 
   // Función recursiva para procesar tokens
-  function processTokens(obj, target, prefix = '') {
+  function processTokens(obj, target, prefix = "") {
     for (const key in obj) {
       if (obj[key].value !== undefined) {
         // Es un token con valor
@@ -124,9 +130,9 @@ function generateJSTokens(tokens) {
           ? `${prefix}${key.charAt(0).toUpperCase() + key.slice(1)}`
           : key;
         target[tokenKey] = obj[key].value;
-      } else if (typeof obj[key] === 'object') {
+      } else if (typeof obj[key] === "object") {
         // Verificar si es un objeto de sombra
-        if (key === 'shadow1' || key === 'shadow2') {
+        if (key === "shadow1" || key === "shadow2") {
           // Procesar objeto de sombra
           const shadow = obj[key];
           if (
@@ -146,9 +152,8 @@ function generateJSTokens(tokens) {
             target[key].color = shadow.color;
 
             // Agregar también la versión CSS
-            target[
-              key
-            ].value = `${shadow.x}px ${shadow.y}px ${shadow.blur}px ${shadow.spread}px ${shadow.color}`;
+            target[key].value =
+              `${shadow.x}px ${shadow.y}px ${shadow.blur}px ${shadow.spread}px ${shadow.color}`;
           }
         } else {
           // Es un grupo de tokens normal
@@ -161,7 +166,7 @@ function generateJSTokens(tokens) {
           processTokens(
             obj[key],
             target[key],
-            newPrefix === key ? '' : newPrefix
+            newPrefix === key ? "" : newPrefix
           );
         }
       }
@@ -174,6 +179,13 @@ function generateJSTokens(tokens) {
     for (const category in tokens.global) {
       jsTokens.global[category] = {};
       processTokens(tokens.global[category], jsTokens.global[category]);
+
+      // Caso especial para la tipografía
+      if (category === "typography" && tokens.global.typography.fontFamily) {
+        // Asegurarse de que fontFamily se procese correctamente
+        jsTokens.global.typography.fontFamily =
+          tokens.global.typography.fontFamily.value;
+      }
     }
   }
 
@@ -228,15 +240,15 @@ const cssOutput = generateCSSVariables(tokens);
 const jsOutput = generateJSTokens(tokens);
 
 // Asegurarse de que el directorio dist exista
-const distDir = path.resolve(__dirname, 'dist');
+const distDir = path.resolve(__dirname, "dist");
 if (!fs.existsSync(distDir)) {
   fs.mkdirSync(distDir, { recursive: true });
 }
 
 // Escribir los archivos
-fs.writeFileSync(path.resolve(distDir, 'variables.css'), cssOutput);
-fs.writeFileSync(path.resolve(distDir, 'tokens.js'), jsOutput);
+fs.writeFileSync(path.resolve(distDir, "variables.css"), cssOutput);
+fs.writeFileSync(path.resolve(distDir, "tokens.js"), jsOutput);
 
-console.log('✅ Tokens generados correctamente en:');
-console.log('  - shared-ui/src/tokens/dist/variables.css');
-console.log('  - shared-ui/src/tokens/dist/tokens.js');
+console.log("✅ Tokens generados correctamente en:");
+console.log("  - shared-ui/src/tokens/dist/variables.css");
+console.log("  - shared-ui/src/tokens/dist/tokens.js");

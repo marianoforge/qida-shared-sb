@@ -593,6 +593,120 @@
           "value": "{global.borderRadius.full}"
         }
       }
+    },
+    "accordion": {
+      "background": {
+        "value": "{global.colors.neutral.50}"
+      },
+      "border": {
+        "value": "{global.colors.neutral.300}"
+      },
+      "text": {
+        "value": "{global.colors.neutral.900}"
+      },
+      "header": {
+        "padding": {
+          "value": "{global.spacing.16}"
+        },
+        "fontSize": {
+          "value": "{global.typography.fontSizes.body-lg}"
+        },
+        "fontWeight": {
+          "value": "{global.typography.fontWeights.medium}"
+        }
+      },
+      "content": {
+        "padding": {
+          "value": "{global.spacing.16}"
+        },
+        "fontSize": {
+          "value": "{global.typography.fontSizes.body-md}"
+        },
+        "lineHeight": {
+          "value": "{global.typography.lineHeights.body}"
+        }
+      },
+      "states": {
+        "closed": {
+          "iconRotation": {
+            "value": "0deg"
+          }
+        },
+        "opened": {
+          "iconRotation": {
+            "value": "180deg"
+          }
+        }
+      }
+    },
+    "avatars": {
+      "sizes": {
+        "sm": {
+          "value": "24px"
+        },
+        "md": {
+          "value": "32px"
+        },
+        "lg": {
+          "value": "48px"
+        }
+      },
+      "types": {
+        "icon": {
+          "value": "Icon Representation"
+        },
+        "image": {
+          "value": "Image Representation"
+        },
+        "text": {
+          "value": "Text Representation"
+        }
+      },
+      "borderRadius": {
+        "value": "{global.borderRadius.full}"
+      }
+    },
+    "alert_toast": {
+      "types": {
+        "informative": {
+          "background": {
+            "value": "{global.colors.informative.50}"
+          },
+          "text": {
+            "value": "{global.colors.informative.700}"
+          }
+        },
+        "success": {
+          "background": {
+            "value": "{global.colors.success.50}"
+          },
+          "text": {
+            "value": "{global.colors.success.700}"
+          }
+        },
+        "warning": {
+          "background": {
+            "value": "{global.colors.warning.50}"
+          },
+          "text": {
+            "value": "{global.colors.warning.700}"
+          }
+        },
+        "error": {
+          "background": {
+            "value": "{global.colors.error.50}"
+          },
+          "text": {
+            "value": "{global.colors.error.700}"
+          }
+        }
+      },
+      "padding": {
+        "value": "{global.spacing.16}"
+      },
+      "borderRadius": {
+        "value": "{global.borderRadius.sm}"
+      }
     }
   }
 }

@@ -16,6 +16,7 @@ export const tokens: {
           blur: number;
           spread: number;
           color: string;
+          value: string;
         };
         shadow2: {
           x: number;
@@ -23,6 +24,7 @@ export const tokens: {
           blur: number;
           spread: number;
           color: string;
+          value: string;
         };
       };
     };
@@ -51,9 +53,14 @@ export const tokens: {
   components: {
     [component: string]: {
       [property: string]: any;
+      variants?: {
+        [variant: string]: {
+          [state: string]: string;
+        };
+      };
       sizes?: {
         [size: string]: {
-          [prop: string]: any;
+          [prop: string]: string;
         };
       };
     };

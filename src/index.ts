@@ -6,6 +6,10 @@ import "./tokens/dist/variables.css";
 
 // Exportar componentes
 export * from "./components/Button/Button";
+export * from "./components/Accordion/Accordion";
+export * from "./components/Typography/Typography";
+export * from "./components/Avatar/Avatar";
+export * from "./components/AlertToast/AlertToast";
 
 // Exportar tipos si es necesario
 export interface DesignTokensConfig {

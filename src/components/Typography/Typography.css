@@ -1,0 +1,100 @@
+/* Importar las variables CSS de los tokens */
+@import "../../tokens/dist/variables.css";
+/* Importar las fuentes */
+@import "../../fonts/fonts.css";
+
+.typography {
+  font-family:
+    "Aeonik",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Variantes de tamaño */
+.typography-headline-xl {
+  font-size: var(--typography-fontSizes-headline-xl);
+  line-height: var(--typography-lineHeights-headline);
+}
+
+.typography-headline-lg {
+  font-size: var(--typography-fontSizes-headline-lg);
+  line-height: var(--typography-lineHeights-headline);
+}
+
+.typography-headline-md {
+  font-size: var(--typography-fontSizes-headline-md);
+  line-height: var(--typography-lineHeights-headline);
+}
+
+.typography-headline-sm {
+  font-size: var(--typography-fontSizes-headline-sm);
+  line-height: var(--typography-lineHeights-headline);
+}
+
+.typography-title-lg {
+  font-size: var(--typography-fontSizes-title-lg);
+  line-height: var(--typography-lineHeights-title);
+}
+
+.typography-title-md {
+  font-size: var(--typography-fontSizes-title-md);
+  line-height: var(--typography-lineHeights-title);
+}
+
+.typography-title-sm {
+  font-size: var(--typography-fontSizes-title-sm);
+  line-height: var(--typography-lineHeights-title);
+}
+
+.typography-body-lg {
+  font-size: var(--typography-fontSizes-body-lg);
+  line-height: var(--typography-lineHeights-body);
+}
+
+.typography-body-md {
+  font-size: var(--typography-fontSizes-body-md);
+  line-height: var(--typography-lineHeights-body);
+}
+
+.typography-body-sm {
+  font-size: var(--typography-fontSizes-body-sm);
+  line-height: var(--typography-lineHeights-body);
+}
+
+.typography-label-lg {
+  font-size: var(--typography-fontSizes-label-lg);
+  line-height: var(--typography-lineHeights-label);
+}
+
+.typography-label-md {
+  font-size: var(--typography-fontSizes-label-md);
+  line-height: var(--typography-lineHeights-label);
+}
+
+.typography-label-sm {
+  font-size: var(--typography-fontSizes-label-sm);
+  line-height: var(--typography-lineHeights-label);
+}
+
+/* Variantes de peso */
+.typography-weight-regular {
+  font-weight: var(--typography-fontWeights-regular);
+}
+
+.typography-weight-medium {
+  font-weight: var(--typography-fontWeights-medium);
+}
+
+.typography-weight-bold {
+  font-weight: var(--typography-fontWeights-bold);
+}

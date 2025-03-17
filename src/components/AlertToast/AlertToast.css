@@ -1,0 +1,78 @@
+/* Importar las variables CSS de los tokens */
+@import "../../tokens/dist/variables.css";
+
+.alert-toast {
+  display: flex;
+  align-items: flex-start;
+  padding: var(--spacing-16);
+  border-radius: var(--borderRadius-sm);
+  box-shadow: var(--elevations-sm-shadow1);
+  margin-bottom: 16px;
+  max-width: 400px;
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.alert-toast-icon {
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.alert-toast-content {
+  flex: 1;
+}
+
+.alert-toast-title {
+  font-weight: var(--typography-fontWeights-medium);
+  margin-bottom: 4px;
+}
+
+.alert-toast-message {
+  font-size: var(--typography-fontSizes-body-sm);
+  line-height: var(--typography-lineHeights-body);
+}
+
+.alert-toast-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  margin-left: 8px;
+  color: inherit;
+  opacity: 0.7;
+}
+
+.alert-toast-close:hover {
+  opacity: 1;
+}
+
+/* Tipos de alerta */
+.alert-toast-informative {
+  background-color: var(--colors-informative-50);
+  color: var(--colors-informative-700);
+}
+
+.alert-toast-success {
+  background-color: var(--colors-success-50);
+  color: var(--colors-success-700);
+}
+
+.alert-toast-warning {
+  background-color: var(--colors-warning-50);
+  color: var(--colors-warning-700);
+}
+
+.alert-toast-error {
+  background-color: var(--colors-error-50);
+  color: var(--colors-error-700);
+}
