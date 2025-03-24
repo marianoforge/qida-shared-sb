@@ -3,118 +3,422 @@
 /* Importar las fuentes */
 @import "../../fonts/fonts.css";
 
-/* Estilos base del botón */
-.button {
+/* Base button styles */
+.qida-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-family:
-    var(--typography-fontFamily), "Helvetica Neue", Arial, sans-serif;
-  font-weight: var(--typography-fontWeights-medium);
-  border-radius: var(--borderRadius-sm);
-  border: 1px solid transparent;
-  cursor: pointer;
+  gap: 8px;
+  border-radius: 8px;
+  font-family: var(--font-family-primary);
   transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  border: 1px solid;
+  outline: none;
 }
 
-/* Variantes de botón */
-.button-primary {
-  background-color: var(--button-primary-background);
-  color: var(--button-primary-text);
-  border-color: var(--button-primary-border);
+/* Sizes */
+.qida-button--sm {
+  height: 24px;
+  padding: 0 16px;
+  font-size: var(--font-size-12);
+  line-height: var(--font-line-height-16);
 }
 
-.button-primary:hover {
-  background-color: var(--button-primary-hoverBackground);
-  color: var(--button-primary-hoverText);
-  border-color: var(--button-primary-hoverBorder);
+.qida-button--md {
+  height: 40px;
+  padding: 0 16px;
+  font-size: var(--font-size-14);
+  line-height: var(--font-line-height-20);
 }
 
-.button-primary:active {
-  background-color: var(--button-primary-activeBackground);
-  color: var(--button-primary-activeText);
-  border-color: var(--button-primary-activeBorder);
+.qida-button--lg {
+  height: 48px;
+  padding: 0 24px;
+  font-size: var(--font-size-16);
+  line-height: var(--font-line-height-24);
 }
 
-.button-secondary {
-  background-color: var(--button-secondary-background);
-  color: var(--button-secondary-text);
-  border-color: var(--button-secondary-border);
+/* Primary Variants */
+.qida-button--primary-200 {
+  background-color: var(--colors-primary-200);
+  color: var(--colors-base-white);
+  border: none;
 }
 
-.button-secondary:hover {
-  background-color: var(--button-secondary-hoverBackground);
-  color: var(--button-secondary-hoverText);
-  border-color: var(--button-secondary-hoverBorder);
+.qida-button--primary-400 {
+  background-color: var(--colors-primary-400);
+  color: var(--colors-base-white);
+  border: none;
 }
 
-.button-secondary:active {
-  background-color: var(--button-secondary-activeBackground);
-  color: var(--button-secondary-activeText);
-  border-color: var(--button-secondary-activeBorder);
+.qida-button--primary-500 {
+  background-color: var(--colors-primary-500);
+  color: var(--colors-base-white);
+  border: none;
 }
 
-.button-tertiary {
+.qida-button--primary-600 {
+  background-color: var(--colors-primary-600);
+  color: var(--colors-base-white);
+  border: none;
+}
+
+/* Secondary Variants */
+.qida-button--secondary-default {
+  background-color: transparent;
+  color: var(--colors-primary-400);
+  border-color: var(--colors-primary-200);
+}
+
+.qida-button--secondary-primary {
   background-color: transparent;
   color: var(--colors-primary-500);
   border-color: var(--colors-primary-500);
 }
 
-.button-tertiary:hover {
+.qida-button--secondary-primary-light {
   background-color: var(--colors-primary-50);
-  color: var(--colors-primary-600);
-  border-color: var(--colors-primary-600);
+  color: var(--colors-primary-500);
+  border-color: var(--colors-primary-500);
 }
 
-.button-tertiary:active {
+.qida-button--secondary-primary-dark {
   background-color: var(--colors-primary-100);
-  color: var(--colors-primary-700);
-  border-color: var(--colors-primary-700);
+  color: var(--colors-primary-500);
+  border-color: var(--colors-primary-500);
 }
 
-.button-ghost {
+.qida-button--secondary-thick-border {
   background-color: transparent;
   color: var(--colors-primary-500);
-  border-color: transparent;
+  border: 4px solid var(--colors-primary-200);
 }
 
-.button-ghost:hover {
+/* Tertiary Variants */
+.qida-button--tertiary-default {
+  background-color: transparent;
+  color: var(--colors-primary-400);
+  border: none;
+  text-decoration: underline;
+}
+
+.qida-button--tertiary-primary {
+  background-color: transparent;
+  color: var(--colors-primary-500);
+  border: none;
+  text-decoration: underline;
+}
+
+.qida-button--tertiary-primary-light {
   background-color: var(--colors-primary-50);
-  color: var(--colors-primary-600);
+  color: var(--colors-primary-500);
+  border: none;
+  text-decoration: underline;
 }
 
-.button-ghost:active {
+.qida-button--tertiary-primary-dark {
   background-color: var(--colors-primary-100);
-  color: var(--colors-primary-700);
+  color: var(--colors-primary-500);
+  border: none;
+  text-decoration: underline;
 }
 
-/* Tamaños de botón */
-.button-small {
-  padding: var(--spacing-4) var(--spacing-8);
-  font-size: var(--typography-fontSizes-body-sm);
-  height: 32px;
+/* Bordered variant */
+.qida-button--bordered {
+  border: 4px solid var(--colors-primary-200);
 }
 
-.button-medium {
-  padding: var(--spacing-8) var(--spacing-16);
-  font-size: var(--typography-fontSizes-body-md);
-  height: 40px;
+/* Full width */
+.qida-button--full-width {
+  width: 100%;
 }
 
-.button-large {
-  padding: var(--spacing-12) var(--spacing-24);
-  font-size: var(--typography-fontSizes-body-lg);
-  height: 48px;
+/* Icon styles */
+.qida-button__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Estados del botón */
-.button:disabled {
+.qida-button--sm .qida-button__icon {
+  width: 16px;
+  height: 16px;
+}
+
+.qida-button--md .qida-button__icon,
+.qida-button--lg .qida-button__icon {
+  width: 24px;
+  height: 24px;
+}
+
+/* Hover states */
+.qida-button--primary-200:hover {
+  background-color: var(--colors-primary-300);
+}
+
+.qida-button--primary-400:hover {
+  background-color: var(--colors-primary-500);
+}
+
+.qida-button--primary-500:hover {
+  background-color: var(--colors-primary-600);
+}
+
+.qida-button--primary-600:hover {
+  background-color: var(--colors-primary-700);
+}
+
+.qida-button--secondary-default:hover {
+  background-color: var(--colors-primary-50);
+}
+
+.qida-button--secondary-primary:hover {
+  background-color: var(--colors-primary-50);
+}
+
+.qida-button--secondary-primary-light:hover {
+  background-color: var(--colors-primary-100);
+}
+
+.qida-button--secondary-primary-dark:hover {
+  background-color: var(--colors-primary-200);
+}
+
+.qida-button--secondary-thick-border:hover {
+  background-color: var(--colors-primary-50);
+}
+
+/* Hover states for tertiary variants */
+.qida-button--tertiary-default:hover {
+  background-color: var(--colors-primary-50);
+}
+
+.qida-button--tertiary-primary:hover {
+  background-color: var(--colors-primary-50);
+}
+
+.qida-button--tertiary-primary-light:hover {
+  background-color: var(--colors-primary-100);
+}
+
+.qida-button--tertiary-primary-dark:hover {
+  background-color: var(--colors-primary-200);
+}
+
+/* Focus states */
+.qida-button:focus {
+  outline: 2px solid var(--colors-primary-300);
+  outline-offset: 2px;
+}
+
+/* Disabled state */
+.qida-button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
 
-/* Enfoque accesible */
-.button:focus-visible {
-  outline: 2px solid var(--colors-primary-500);
+/* Icon-only button styles */
+.qida-button--icon-only {
+  padding: 0;
+  width: 40px;
+  height: 40px;
+}
+
+.qida-button--icon-only.qida-button--sm {
+  width: 40px;
+  height: 40px;
+}
+
+.qida-button--icon-only.qida-button--lg {
+  width: 48px;
+  height: 48px;
+}
+
+/* Icon button variants */
+.qida-button--icon-primary-200 {
+  background-color: var(--colors-primary-200);
+  color: var(--colors-base-white);
+  border: none;
+}
+
+.qida-button--icon-primary-400 {
+  background-color: var(--colors-primary-400);
+  color: var(--colors-base-white);
+  border: none;
+}
+
+.qida-button--icon-primary-500 {
+  background-color: var(--colors-primary-500);
+  color: var(--colors-base-white);
+  border: none;
+}
+
+.qida-button--icon-primary-600 {
+  background-color: var(--colors-primary-600);
+  color: var(--colors-base-white);
+  border: none;
+}
+
+.qida-button--icon-bordered-default {
+  background-color: transparent;
+  color: var(--colors-primary-500);
+  border-color: var(--colors-primary-500);
+}
+
+.qida-button--icon-bordered-primary {
+  background-color: transparent;
+  color: var(--colors-primary-500);
+  border-color: var(--colors-primary-500);
+}
+
+.qida-button--icon-bordered-primary-light {
+  background-color: var(--colors-primary-50);
+  color: var(--colors-primary-500);
+  border-color: var(--colors-primary-500);
+}
+
+.qida-button--icon-bordered-primary-dark {
+  background-color: var(--colors-primary-100);
+  color: var(--colors-primary-500);
+  border-color: var(--colors-primary-500);
+}
+
+.qida-button--icon-transparent {
+  background-color: transparent;
+  color: var(--colors-neutral-900);
+  border: none;
+}
+
+.qida-button--icon-neutral-200 {
+  background-color: var(--colors-neutral-200);
+  color: var(--colors-neutral-900);
+  border: none;
+}
+
+.qida-button--icon-neutral-300 {
+  background-color: var(--colors-neutral-300);
+  color: var(--colors-neutral-900);
+  border: none;
+}
+
+.qida-button--icon-neutral-100 {
+  background-color: var(--colors-neutral-100);
+  color: var(--colors-neutral-900);
+  border: none;
+}
+
+/* Hover states for icon buttons */
+.qida-button--icon-primary-200:hover {
+  background-color: var(--colors-primary-300);
+}
+
+.qida-button--icon-primary-400:hover {
+  background-color: var(--colors-primary-500);
+}
+
+.qida-button--icon-primary-500:hover {
+  background-color: var(--colors-primary-600);
+}
+
+.qida-button--icon-primary-600:hover {
+  background-color: var(--colors-primary-700);
+}
+
+.qida-button--icon-bordered-default:hover,
+.qida-button--icon-bordered-primary:hover {
+  background-color: var(--colors-primary-50);
+}
+
+.qida-button--icon-bordered-primary-light:hover {
+  background-color: var(--colors-primary-100);
+}
+
+.qida-button--icon-bordered-primary-dark:hover {
+  background-color: var(--colors-primary-200);
+}
+
+.qida-button--icon-transparent:hover {
+  background-color: var(--colors-neutral-100);
+}
+
+.qida-button--icon-neutral-200:hover {
+  background-color: var(--colors-neutral-300);
+}
+
+.qida-button--icon-neutral-300:hover {
+  background-color: var(--colors-neutral-400);
+}
+
+.qida-button--icon-neutral-100:hover {
+  background-color: var(--colors-neutral-200);
+}
+
+/* FAB button styles */
+.qida-button--fab {
+  padding: 0;
+  border: none;
+  box-shadow: var(--shadow-lg);
+}
+
+.qida-button--fab-sm {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+}
+
+.qida-button--fab-lg {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+}
+
+/* FAB variants */
+.qida-button--fab-primary-200 {
+  background-color: var(--colors-primary-200);
+  color: var(--colors-base-white);
+}
+
+.qida-button--fab-primary-400 {
+  background-color: var(--colors-primary-400);
+  color: var(--colors-base-white);
+}
+
+.qida-button--fab-primary-500 {
+  background-color: var(--colors-primary-500);
+  color: var(--colors-base-white);
+}
+
+.qida-button--fab-primary-600 {
+  background-color: var(--colors-primary-600);
+  color: var(--colors-base-white);
+}
+
+/* Hover states for FAB buttons */
+.qida-button--fab-primary-200:hover {
+  background-color: var(--colors-primary-300);
+}
+
+.qida-button--fab-primary-400:hover {
+  background-color: var(--colors-primary-500);
+}
+
+.qida-button--fab-primary-500:hover {
+  background-color: var(--colors-primary-600);
+}
+
+.qida-button--fab-primary-600:hover {
+  background-color: var(--colors-primary-700);
+}
+
+/* Focus states for FAB buttons */
+.qida-button--fab:focus {
+  outline: 2px solid var(--colors-primary-300);
   outline-offset: 2px;
+}
+
+/* Icon styles for FAB buttons */
+.qida-button--fab .qida-button__icon {
+  width: 24px;
+  height: 24px;
 }

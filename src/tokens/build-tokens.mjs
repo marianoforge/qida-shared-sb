@@ -11,7 +11,93 @@ const tokensPath = path.resolve(__dirname, "figma-tokens.json");
 const tokensContent = fs.readFileSync(tokensPath, "utf8");
 const tokens = JSON.parse(tokensContent);
 
-// Función para generar CSS variables
+/**
+ * Función auxiliar para procesar referencias en valores de tokens
+ * @param {string} value - Valor del token que puede contener referencias
+ * @returns {string} - Valor con referencias resueltas a variables CSS
+ */
+const processTokenReference = (value) => {
+  // Check if the value is a string and contains a reference pattern
+  if (typeof value !== "string" || !value.includes("{")) {
+    return value;
+  }
+
+  // Handle values with multiple references separated by spaces
+  if (value.includes(" ") && value.match(/{[^}]+}/g)) {
+    // Split by spaces and process each part individually
+    return value
+      .split(" ")
+      .map((part) => processTokenReference(part))
+      .join(" ");
+  }
+
+  // Check if it's a complete reference (e.g., "{colors.primary.500}")
+  if (value.startsWith("{") && value.endsWith("}")) {
+    // Remove braces and convert to CSS variable
+    const path = value
+      .substring(1, value.length - 1)
+      .replace(/\./g, "-")
+      .replace(/^global-/, ""); // Remove 'global-' prefix
+    return `var(--${path})`;
+  }
+
+  // Handle partial references (e.g., "solid 1px {colors.primary.500}")
+  const regex = /{([^}]+)}/g;
+  return value.replace(regex, (match, path) => {
+    return `var(--${path.replace(/\./g, "-").replace(/^global-/, "")})`;
+  });
+};
+
+/**
+ * Procesa un objeto de forma genérica para variables CSS
+ * @param {Object} obj - Objeto a procesar
+ * @param {string} prefix - Prefijo para las variables CSS
+ * @param {string} css - CSS acumulado
+ * @returns {string} - Variables CSS generadas
+ */
+function processToCSSVariables(obj, prefix = "", css = "") {
+  for (const key in obj) {
+    const newPrefix = prefix ? `${prefix}-${key}` : key;
+
+    // Caso especial para la tipografía fontFamily
+    if (key === "fontFamily" && obj[key].value) {
+      css += `  --typography-fontFamily: ${obj[key].value};\n`;
+      continue;
+    }
+
+    // Caso especial para objetos de sombra
+    if (
+      (key === "shadow1" || key === "shadow2") &&
+      obj[key].x !== undefined &&
+      obj[key].y !== undefined &&
+      obj[key].blur !== undefined &&
+      obj[key].spread !== undefined &&
+      obj[key].color !== undefined
+    ) {
+      const shadowValue = `${obj[key].x}px ${obj[key].y}px ${obj[key].blur}px ${obj[key].spread}px ${obj[key].color}`;
+      css += `  --${newPrefix}: ${shadowValue};\n`;
+      continue;
+    }
+
+    // Si es un token con valor
+    if (obj[key].value !== undefined) {
+      const finalValue = processTokenReference(obj[key].value);
+      css += `  --${newPrefix}: ${finalValue};\n`;
+    }
+    // Si es un objeto anidado
+    else if (typeof obj[key] === "object" && !Array.isArray(obj[key])) {
+      css = processToCSSVariables(obj[key], newPrefix, css);
+    }
+  }
+
+  return css;
+}
+
+/**
+ * Genera variables CSS a partir de tokens
+ * @param {Object} tokens - Tokens de diseño
+ * @returns {string} - Contenido CSS con variables
+ */
 function generateCSSVariables(tokens) {
   let css = `/**
  * Do not edit directly
@@ -20,96 +106,17 @@ function generateCSSVariables(tokens) {
 
 :root {\n`;
 
-  // Función recursiva para procesar tokens
-  function processTokens(obj, prefix = "") {
-    for (const key in obj) {
-      const fullKey = prefix ? `${prefix}-${key}` : key;
-
-      if (obj[key].value !== undefined) {
-        // Es un token con valor
-        css += `  --${fullKey}: ${obj[key].value};\n`;
-      } else if (typeof obj[key] === "object") {
-        // Verificar si es un objeto de sombra
-        if (key === "shadow1" || key === "shadow2") {
-          // Procesar objeto de sombra
-          const shadow = obj[key];
-          if (
-            shadow.x !== undefined &&
-            shadow.y !== undefined &&
-            shadow.blur !== undefined &&
-            shadow.spread !== undefined &&
-            shadow.color !== undefined
-          ) {
-            const shadowValue = `${shadow.x}px ${shadow.y}px ${shadow.blur}px ${shadow.spread}px ${shadow.color}`;
-            css += `  --${fullKey}: ${shadowValue};\n`;
-          }
-        } else {
-          // Es un grupo de tokens normal
-          processTokens(obj[key], fullKey);
-        }
-      }
-    }
-  }
-
   // Procesar tokens globales
   if (tokens.global) {
     for (const category in tokens.global) {
-      // Caso especial para la tipografía
-      if (category === "typography" && tokens.global.typography.fontFamily) {
-        // Asegurarse de que fontFamily se procese correctamente
-        css += `  --typography-fontFamily: ${tokens.global.typography.fontFamily.value};\n`;
-      }
-
-      processTokens(tokens.global[category], category);
+      css = processToCSSVariables(tokens.global[category], category, css);
     }
   }
 
   // Procesar tokens de componentes
   if (tokens.components) {
     for (const component in tokens.components) {
-      // Verificar si el componente tiene variantes
-      if (tokens.components[component].variants) {
-        for (const variant in tokens.components[component].variants) {
-          for (const state in tokens.components[component].variants[variant]) {
-            const value =
-              tokens.components[component].variants[variant][state].value;
-            if (value) {
-              // Reemplazar referencias a otros tokens
-              let finalValue = value;
-              if (value.startsWith("{") && value.endsWith("}")) {
-                const reference = value
-                  .substring(1, value.length - 1)
-                  .replace(/\./g, "-")
-                  .replace(/^global-/, ""); // Eliminar el prefijo 'global-'
-                finalValue = `var(--${reference})`;
-              }
-              css += `  --${component}-${variant}-${state}: ${finalValue};\n`;
-            }
-          }
-        }
-      }
-
-      // Procesar tamaños si existen
-      if (tokens.components[component].sizes) {
-        for (const size in tokens.components[component].sizes) {
-          for (const prop in tokens.components[component].sizes[size]) {
-            const value = tokens.components[component].sizes[size][prop].value;
-            if (value) {
-              // Reemplazar referencias a otros tokens
-              let finalValue = value;
-              if (value.includes("{") && value.includes("}")) {
-                // Manejar múltiples referencias en un valor (como en padding)
-                finalValue = value.replace(/\{([^}]+)\}/g, (match, p1) => {
-                  return `var(--${p1
-                    .replace(/\./g, "-")
-                    .replace(/^global-/, "")})`;
-                });
-              }
-              css += `  --${component}-${size}-${prop}: ${finalValue};\n`;
-            }
-          }
-        }
-      }
+      css = processToCSSVariables(tokens.components[component], component, css);
     }
   }
 
@@ -117,72 +124,65 @@ function generateCSSVariables(tokens) {
   return css;
 }
 
-// Función para generar tokens JavaScript
-function generateJSTokens(tokens) {
-  const jsTokens = {};
+/**
+ * Procesa un objeto para el formato JavaScript con manejo recursivo
+ * @param {Object} obj - Objeto a procesar
+ * @param {Object} target - Objeto destino
+ * @returns {Object} - Objeto procesado
+ */
+function processToJSTokens(obj, target = {}) {
+  for (const key in obj) {
+    // Caso especial para objetos de sombra
+    if (
+      (key === "shadow1" || key === "shadow2") &&
+      obj[key].x !== undefined &&
+      obj[key].y !== undefined &&
+      obj[key].blur !== undefined &&
+      obj[key].spread !== undefined &&
+      obj[key].color !== undefined
+    ) {
+      target[key] = {
+        x: obj[key].x,
+        y: obj[key].y,
+        blur: obj[key].blur,
+        spread: obj[key].spread,
+        color: obj[key].color,
+        value: `${obj[key].x}px ${obj[key].y}px ${obj[key].blur}px ${obj[key].spread}px ${obj[key].color}`,
+      };
+      continue;
+    }
 
-  // Función recursiva para procesar tokens
-  function processTokens(obj, target, prefix = "") {
-    for (const key in obj) {
-      if (obj[key].value !== undefined) {
-        // Es un token con valor
-        const tokenKey = prefix
-          ? `${prefix}${key.charAt(0).toUpperCase() + key.slice(1)}`
-          : key;
-        target[tokenKey] = obj[key].value;
-      } else if (typeof obj[key] === "object") {
-        // Verificar si es un objeto de sombra
-        if (key === "shadow1" || key === "shadow2") {
-          // Procesar objeto de sombra
-          const shadow = obj[key];
-          if (
-            shadow.x !== undefined &&
-            shadow.y !== undefined &&
-            shadow.blur !== undefined &&
-            shadow.spread !== undefined &&
-            shadow.color !== undefined
-          ) {
-            if (!target[key]) {
-              target[key] = {};
-            }
-            target[key].x = shadow.x;
-            target[key].y = shadow.y;
-            target[key].blur = shadow.blur;
-            target[key].spread = shadow.spread;
-            target[key].color = shadow.color;
-
-            // Agregar también la versión CSS
-            target[key].value =
-              `${shadow.x}px ${shadow.y}px ${shadow.blur}px ${shadow.spread}px ${shadow.color}`;
-          }
-        } else {
-          // Es un grupo de tokens normal
-          const newPrefix = prefix
-            ? `${prefix}${key.charAt(0).toUpperCase() + key.slice(1)}`
-            : key;
-          if (!target[key]) {
-            target[key] = {};
-          }
-          processTokens(
-            obj[key],
-            target[key],
-            newPrefix === key ? "" : newPrefix
-          );
-        }
-      }
+    // Si es un token con valor directo
+    if (obj[key].value !== undefined) {
+      target[key] = obj[key].value;
+    }
+    // Si es un objeto anidado
+    else if (typeof obj[key] === "object" && !Array.isArray(obj[key])) {
+      target[key] = {};
+      processToJSTokens(obj[key], target[key]);
     }
   }
+
+  return target;
+}
+
+/**
+ * Genera tokens JavaScript a partir de los tokens de diseño
+ * @param {Object} tokens - Tokens de diseño
+ * @returns {string} - Contenido JS con tokens exportados
+ */
+function generateJSTokens(tokens) {
+  const jsTokens = {};
 
   // Procesar tokens globales
   if (tokens.global) {
     jsTokens.global = {};
     for (const category in tokens.global) {
       jsTokens.global[category] = {};
-      processTokens(tokens.global[category], jsTokens.global[category]);
+      processToJSTokens(tokens.global[category], jsTokens.global[category]);
 
       // Caso especial para la tipografía
       if (category === "typography" && tokens.global.typography.fontFamily) {
-        // Asegurarse de que fontFamily se procese correctamente
         jsTokens.global.typography.fontFamily =
           tokens.global.typography.fontFamily.value;
       }
@@ -194,35 +194,10 @@ function generateJSTokens(tokens) {
     jsTokens.components = {};
     for (const component in tokens.components) {
       jsTokens.components[component] = {};
-
-      // Procesar variantes si existen
-      if (tokens.components[component].variants) {
-        jsTokens.components[component].variants = {};
-        for (const variant in tokens.components[component].variants) {
-          jsTokens.components[component].variants[variant] = {};
-          for (const state in tokens.components[component].variants[variant]) {
-            const value =
-              tokens.components[component].variants[variant][state].value;
-            if (value) {
-              jsTokens.components[component].variants[variant][state] = value;
-            }
-          }
-        }
-      }
-
-      // Procesar tamaños si existen
-      if (tokens.components[component].sizes) {
-        jsTokens.components[component].sizes = {};
-        for (const size in tokens.components[component].sizes) {
-          jsTokens.components[component].sizes[size] = {};
-          for (const prop in tokens.components[component].sizes[size]) {
-            const value = tokens.components[component].sizes[size][prop].value;
-            if (value) {
-              jsTokens.components[component].sizes[size][prop] = value;
-            }
-          }
-        }
-      }
+      processToJSTokens(
+        tokens.components[component],
+        jsTokens.components[component]
+      );
     }
   }
 

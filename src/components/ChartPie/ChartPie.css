@@ -1,0 +1,65 @@
+/* Importar las variables CSS de los tokens */
+@import "../../tokens/dist/variables.css";
+/* Importar las fuentes */
+@import "../../fonts/fonts.css";
+
+/* Base styles for ChartPie */
+.qida-chart-pie {
+  position: relative;
+  display: inline-block;
+  width: 64px;
+  height: 64px;
+  font-size: 18px;
+  color: #333;
+  font-family: var(--font-family-primary);
+}
+
+/* Size variants */
+.qida-chart-pie--sm {
+  width: 64px;
+  height: 64px;
+}
+
+.qida-chart-pie--md {
+  width: 80px;
+  height: 80px;
+}
+
+/* Percentage container */
+.qida-chart-pie__percentage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  /* Rotamos el gradiente para que comience desde arriba */
+  transform: rotate(-90deg);
+}
+
+/* Value text */
+.qida-chart-pie__value {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(90deg); /* Contra-rotamos el texto */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70%;
+  height: 70%;
+  line-height: 24px;
+  font-weight: var(--font-weight-medium);
+  z-index: 10;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px white;
+}
+
+/* Specific size adjustments for text */
+.qida-chart-pie--sm .qida-chart-pie__value {
+  font-size: 16px;
+}
+
+.qida-chart-pie--md .qida-chart-pie__value {
+  font-size: 18px;
+}

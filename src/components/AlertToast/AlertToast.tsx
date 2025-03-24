@@ -1,167 +1,164 @@
 import React, { useState, useEffect } from "react";
+import ReactDOM from "react-dom";
 import "./AlertToast.css";
+
+export type ToastType = "informative" | "success" | "warning" | "error";
 
 export interface AlertToastProps {
   /**
-   * Tipo de alerta
+   * Tipo de toast que determina el color y el icono
    */
-  type: "informative" | "success" | "warning" | "error";
+  type?: ToastType;
+
   /**
-   * Título de la alerta
+   * Mensaje del toast
    */
-  title: string;
+  message: string;
+
   /**
-   * Mensaje de la alerta
-   */
-  message?: string;
-  /**
-   * Duración en milisegundos (0 para no auto-cerrar)
+   * Duración en milisegundos que el toast permanecerá visible
    */
   duration?: number;
+
   /**
-   * Función a ejecutar al cerrar la alerta
+   * Callback cuando el toast se cierra
    */
   onClose?: () => void;
+
   /**
-   * Clase CSS adicional
+   * ID único para el toast
    */
-  className?: string;
-  /**
-   * Mostrar icono
-   */
-  showIcon?: boolean;
+  id?: string;
 }
 
-/**
- * Componente AlertToast para mostrar mensajes de alerta o notificaciones
- */
 export const AlertToast: React.FC<AlertToastProps> = ({
-  type,
-  title,
+  type = "informative",
   message,
-  duration = 5000,
+  duration = 4000,
   onClose,
-  className = "",
-  showIcon = true,
+  id,
 }) => {
-  const [visible, setVisible] = useState(true);
+  const [visible, setVisible] = useState(false);
+  const [exiting, setExiting] = useState(false);
+  const toastId = id || `toast-${Math.random().toString(36).substr(2, 9)}`;
 
+  // Efecto para mostrar y luego ocultar el toast
   useEffect(() => {
-    let timer: number | undefined;
-    if (duration > 0) {
-      timer = window.setTimeout(() => {
-        setVisible(false);
-        if (onClose) onClose();
-      }, duration);
-    }
+    // Muestra el toast con un pequeño retraso para permitir la animación
+    const showTimeout = setTimeout(() => {
+      setVisible(true);
+    }, 10);
+
+    // Programa el cierre del toast después de la duración especificada
+    const hideTimeout = setTimeout(() => {
+      handleClose();
+    }, duration);
+
+    // Limpia los timeouts al desmontar
     return () => {
-      if (timer) window.clearTimeout(timer);
+      clearTimeout(showTimeout);
+      clearTimeout(hideTimeout);
     };
-  }, [duration, onClose]);
+  }, [duration]);
 
+  // Maneja el cierre del toast
   const handleClose = () => {
-    setVisible(false);
-    if (onClose) onClose();
+    setExiting(true);
+    setTimeout(() => {
+      setVisible(false);
+      if (onClose) onClose();
+    }, 300); // Duración de la animación de salida
   };
 
-  if (!visible) return null;
+  // Si no es visible, no renderizar nada
+  if (!visible && !exiting) {
+    return null;
+  }
 
-  const renderIcon = () => {
-    if (!showIcon) return null;
+  const typeClass = `qida-toast--${type}`;
 
-    switch (type) {
-      case "informative":
-        return (
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM13 17H11V11H13V17ZM13 9H11V7H13V9Z"
-              fill="currentColor"
-            />
-          </svg>
-        );
-      case "success":
-        return (
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z"
-              fill="currentColor"
-            />
-          </svg>
-        );
-      case "warning":
-        return (
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M1 21H23L12 2L1 21ZM13 18H11V16H13V18ZM13 14H11V10H13V14Z"
-              fill="currentColor"
-            />
-          </svg>
-        );
-      case "error":
-        return (
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM13 17H11V15H13V17ZM13 13H11V7H13V13Z"
-              fill="currentColor"
-            />
-          </svg>
-        );
-      default:
-        return null;
-    }
-  };
-
-  return (
-    <div className={`alert-toast alert-toast-${type} ${className}`}>
-      {showIcon && <div className="alert-toast-icon">{renderIcon()}</div>}
-      <div className="alert-toast-content">
-        <div className="alert-toast-title">{title}</div>
-        {message && <div className="alert-toast-message">{message}</div>}
-      </div>
-      <button
-        className="alert-toast-close"
-        onClick={handleClose}
-        aria-label="Cerrar"
-      >
-        <svg
-          width="16"
-          height="16"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z"
-            fill="currentColor"
-          />
-        </svg>
-      </button>
+  const toast = (
+    <div
+      className={`qida-toast ${typeClass} ${exiting ? "qida-toast--exiting" : ""} ${visible ? "qida-toast--visible" : ""}`}
+      role="status"
+      aria-live="polite"
+      id={toastId}
+    >
+      <div className="qida-toast__icon" aria-hidden="true"></div>
+      <div className="qida-toast__message">{message}</div>
     </div>
   );
+
+  // Usar un portal para renderizar el toast en un contenedor fuera del flujo normal
+  return ReactDOM.createPortal(toast, document.body);
+};
+
+// Componente gestor de toasts
+interface ToastManagerProps {
+  children?: React.ReactNode;
+}
+
+interface ToastOptions extends Omit<AlertToastProps, "id"> {}
+
+export const ToastManager: React.FC<ToastManagerProps> = ({ children }) => {
+  return <div className="qida-toast-container">{children}</div>;
+};
+
+// Sistema de notificaciones global
+let toastContainer: HTMLDivElement | null = null;
+let toastCounter = 0;
+
+function getContainer() {
+  if (!toastContainer) {
+    toastContainer = document.createElement("div");
+    toastContainer.className = "qida-toast-container";
+    document.body.appendChild(toastContainer);
+  }
+  return toastContainer;
+}
+
+export const toast = {
+  show: (options: ToastOptions) => {
+    const id = `toast-${toastCounter++}`;
+    const container = getContainer();
+
+    const toastRoot = document.createElement("div");
+    toastRoot.id = `toast-root-${id}`;
+    container.appendChild(toastRoot);
+
+    const handleClose = () => {
+      if (options.onClose) options.onClose();
+      setTimeout(() => {
+        if (toastRoot.parentNode) {
+          container.removeChild(toastRoot);
+        }
+      }, 300);
+    };
+
+    ReactDOM.render(
+      <AlertToast {...options} id={id} onClose={handleClose} />,
+      toastRoot
+    );
+
+    return id;
+  },
+
+  // Helpers para diferentes tipos de toasts
+  informative: (message: string, options: Partial<ToastOptions> = {}) => {
+    return toast.show({ type: "informative", message, ...options });
+  },
+
+  success: (message: string, options: Partial<ToastOptions> = {}) => {
+    return toast.show({ type: "success", message, ...options });
+  },
+
+  warning: (message: string, options: Partial<ToastOptions> = {}) => {
+    return toast.show({ type: "warning", message, ...options });
+  },
+
+  error: (message: string, options: Partial<ToastOptions> = {}) => {
+    return toast.show({ type: "error", message, ...options });
+  },
 };
 
 export default AlertToast;

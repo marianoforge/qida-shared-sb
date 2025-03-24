@@ -358,3 +358,30 @@ h2 {
   border: 2px solid var(--colors-primary-500);
   border-radius: 9999px;
 }
+
+.tooltip {
+  background-color: var(--tooltip-background);
+  color: var(--tooltip-text);
+  padding: var(--tooltip-padding);
+  border-radius: var(--tooltip-borderRadius);
+  max-width: var(--tooltip-maxWidth);
+}
+
+.tooltip-arrow {
+  width: 0;
+  height: 0;
+  border-width: var(--tooltip-arrow-size);
+  border-color: var(--tooltip-arrow-color);
+}
+
+/* Variantes */
+.tooltip-dark {
+  background-color: var(--tooltip-variants-dark-background);
+  color: var(--tooltip-variants-dark-text);
+}
+
+.tooltip-light {
+  background-color: var(--tooltip-variants-light-background);
+  color: var(--tooltip-variants-light-text);
+  border: 1px solid var(--tooltip-variants-light-border);
+}

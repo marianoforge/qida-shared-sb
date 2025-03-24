@@ -1,0 +1,64 @@
+/* Importar las variables CSS de los tokens */
+@import "../../tokens/dist/variables.css";
+/* Importar las fuentes */
+@import "../../fonts/fonts.css";
+
+.qida-chip {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 8px;
+  gap: 8px;
+  height: 24px;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  box-sizing: border-box;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  outline: none;
+  color: #333;
+}
+
+.qida-chip:hover {
+  background-color: #e5e5e5;
+}
+
+.qida-chip--disabled {
+  background-color: #f5f5f5;
+  color: #666;
+  cursor: not-allowed;
+}
+
+.qida-chip:focus {
+  border: 4px solid #8aa7a4;
+  padding: 0px 4px;
+  height: 28px;
+}
+
+.qida-chip__label {
+  font-family: var(--font-family-primary);
+  font-size: 14px;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.qida-chip__close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+  padding: 4px;
+  cursor: pointer;
+}
+
+.qida-chip--disabled .qida-chip__close {
+  cursor: not-allowed;
+}
+
+.qida-chip__close-icon {
+  width: 8px;
+  height: 8px;
+}

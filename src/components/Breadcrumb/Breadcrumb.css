@@ -1,0 +1,159 @@
+/* Importar las variables CSS de los tokens */
+@import "../../tokens/dist/variables.css";
+/* Importar las fuentes */
+@import "../../fonts/fonts.css";
+
+/* Base styles for breadcrumb */
+.qida-breadcrumb {
+  font-family: var(--font-family-primary);
+  display: flex;
+  align-items: center;
+}
+
+.qida-breadcrumb__list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
+  gap: var(--spacing-4);
+}
+
+.qida-breadcrumb__item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4);
+}
+
+.qida-breadcrumb__link {
+  color: var(--colors-neutral-700);
+  text-decoration: none;
+  font-size: var(--font-size-20);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--font-line-height-28);
+  transition: color 0.2s;
+}
+
+.qida-breadcrumb__link:hover {
+  color: var(--colors-primary-500);
+}
+
+.qida-breadcrumb__link--current {
+  color: var(--colors-neutral-900);
+  pointer-events: none;
+}
+
+.qida-breadcrumb__ellipsis {
+  color: var(--colors-neutral-700);
+  font-size: var(--font-size-20);
+  font-weight: var(--font-weight-medium);
+}
+
+/* Separators */
+.qida-breadcrumb__separator {
+  width: 8px;
+  height: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.qida-breadcrumb__separator::after {
+  content: "";
+  display: block;
+  width: 8px;
+  height: 14px;
+  background-color: currentColor;
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+}
+
+.qida-breadcrumb__separator--ad::after {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M8.25 4.5l7.5 7.5-7.5 7.5' /%3E%3C/svg%3E");
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M8.25 4.5l7.5 7.5-7.5 7.5' /%3E%3C/svg%3E");
+  color: var(--colors-stone-500);
+}
+
+.qida-breadcrumb__separator--vcx::after {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M8.25 4.5l7.5 7.5-7.5 7.5' /%3E%3C/svg%3E");
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M8.25 4.5l7.5 7.5-7.5 7.5' /%3E%3C/svg%3E");
+  color: var(--colors-red-400);
+}
+
+/* Mobile styles */
+.qida-breadcrumb__mobile-container {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4);
+}
+
+.qida-breadcrumb__arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.qida-breadcrumb__arrow-icon {
+  width: 8px;
+  height: 14px;
+  background-color: var(--colors-zinc-800);
+}
+
+.qida-breadcrumb__back-arrow {
+  width: 14px;
+  height: 0;
+  border: 2px solid;
+  transform: rotate(180deg);
+  cursor: pointer;
+}
+
+.qida-breadcrumb__back-arrow--vcx {
+  border-color: var(--colors-red-400);
+}
+
+.qida-breadcrumb__label {
+  font-size: var(--font-size-18);
+  font-weight: var(--font-weight-medium);
+  color: var(--colors-zinc-800);
+}
+
+/* AD Desktop specific */
+.qida-breadcrumb--ad-desktop .qida-breadcrumb__link {
+  color: var(--colors-stone-500);
+}
+
+.qida-breadcrumb--ad-desktop .qida-breadcrumb__link--current {
+  color: var(--colors-zinc-800);
+}
+
+.qida-breadcrumb--ad-desktop .qida-breadcrumb__ellipsis {
+  color: var(--colors-stone-500);
+}
+
+/* VCX Desktop specific */
+.qida-breadcrumb--vcx-desktop .qida-breadcrumb__link {
+  color: var(--colors-stone-500);
+}
+
+.qida-breadcrumb--vcx-desktop .qida-breadcrumb__link--current {
+  color: var(--colors-zinc-800);
+}
+
+.qida-breadcrumb--vcx-desktop .qida-breadcrumb__ellipsis {
+  color: var(--colors-stone-500);
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+  .qida-breadcrumb__label {
+    font-size: var(--font-size-16);
+  }
+}

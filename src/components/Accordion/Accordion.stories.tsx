@@ -1,8 +1,8 @@
 import React from "react";
-import type { Meta, StoryObj } from "@storybook/react";
-import { Accordion } from "./Accordion";
+import { Meta, StoryObj } from "@storybook/react";
+import { Accordion, AccordionGroup } from "./Accordion";
 
-const meta = {
+const meta: Meta<typeof Accordion> = {
   title: "Components/Accordion",
   component: Accordion,
   parameters: {
@@ -10,61 +10,158 @@ const meta = {
   },
   tags: ["autodocs"],
   argTypes: {
-    title: { control: "text" },
-    defaultOpen: { control: "boolean" },
-    children: { control: "text" },
+    title: {
+      control: "text",
+      description: "Título del acordeón",
+    },
+    defaultExpanded: {
+      control: "boolean",
+      description: "Define si el acordeón estará expandido por defecto",
+      table: {
+        defaultValue: { summary: "false" },
+      },
+    },
   },
-} satisfies Meta<typeof Accordion>;
+};
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof Accordion>;
 
+// Historia básica
 export const Default: Story = {
   args: {
-    title: "Accordion Title",
-    children:
-      "This is the content of the accordion. It can contain any type of content, including text, images, and other components.",
-    defaultOpen: false,
+    title: "Título del acordeón",
+    children: (
+      <p>
+        Este es el contenido del acordeón. Puede contener cualquier tipo de
+        elemento HTML o componentes de React. Este contenido se muestra cuando
+        el acordeón está expandido y se oculta cuando está contraído.
+      </p>
+    ),
+    defaultExpanded: false,
   },
 };
 
-export const OpenByDefault: Story = {
+// Acordeón abierto por defecto
+export const ExpandedByDefault: Story = {
   args: {
-    title: "Accordion Open by Default",
-    children:
-      "This accordion is open by default. You can click the header to close it.",
-    defaultOpen: true,
+    title: "Acordeón expandido por defecto",
+    children: (
+      <p>
+        Este acordeón está expandido por defecto. Puedes hacer clic en el
+        encabezado para contraerlo.
+      </p>
+    ),
+    defaultExpanded: true,
   },
 };
 
-export const WithLongContent: Story = {
+// Acordeón con contenido extenso
+export const WithExtensiveContent: Story = {
   args: {
-    title: "Accordion with Long Content",
-    children: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, nisl eget aliquam ultricies, 
-    nunc nisl aliquet nunc, quis aliquam nisl nunc eu nisl. Nullam euismod, nisl eget aliquam ultricies, nunc nisl 
-    aliquet nunc, quis aliquam nisl nunc eu nisl. Nullam euismod, nisl eget aliquam ultricies, nunc nisl aliquet nunc, 
-    quis aliquam nisl nunc eu nisl. Nullam euismod, nisl eget aliquam ultricies, nunc nisl aliquet nunc, quis aliquam 
-    nisl nunc eu nisl.`,
-    defaultOpen: true,
+    title: "Información detallada",
+    children: (
+      <div>
+        <p>
+          Este acordeón contiene una cantidad sustancial de contenido para
+          demostrar cómo maneja el componente grandes cantidades de texto e
+          información.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui
+          mauris. Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor
+          neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim.
+          Phasellus molestie magna non est bibendum non venenatis nisl tempor.
+        </p>
+        <ul>
+          <li>Punto importante 1</li>
+          <li>Punto importante 2</li>
+          <li>Punto importante 3</li>
+        </ul>
+        <p>
+          Suspendisse in justo eu magna luctus suscipit. Sed lectus. Integer
+          euismod lacus luctus magna.
+        </p>
+      </div>
+    ),
   },
 };
 
-export const MultipleAccordions: Story = {
-  args: {
-    title: "Multiple Accordions",
-    children: "This story shows multiple accordions",
-  },
+// Grupo de acordeones
+export const AccordionGroupExample: Story = {
   render: () => (
-    <div style={{ width: "400px" }}>
-      <Accordion title="First Accordion">
-        Content for the first accordion.
+    <AccordionGroup>
+      <Accordion title="Sección 1">
+        <p>Contenido de la sección 1.</p>
       </Accordion>
-      <Accordion title="Second Accordion" defaultOpen={true}>
-        Content for the second accordion.
+      <Accordion title="Sección 2">
+        <p>Contenido de la sección 2.</p>
       </Accordion>
-      <Accordion title="Third Accordion">
-        Content for the third accordion.
+      <Accordion title="Sección 3">
+        <p>Contenido de la sección 3.</p>
       </Accordion>
+    </AccordionGroup>
+  ),
+};
+
+// Ejemplo de pantalla móvil
+export const MobileView: Story = {
+  render: () => (
+    <div style={{ maxWidth: "390px", width: "100%" }}>
+      <Accordion title="Versión móvil">
+        <p>
+          Este es un ejemplo de cómo se vería el acordeón en un dispositivo
+          móvil.
+        </p>
+      </Accordion>
+    </div>
+  ),
+};
+
+// Ejemplo de FAQ
+export const FAQExample: Story = {
+  render: () => (
+    <div style={{ maxWidth: "824px", width: "100%" }}>
+      <h2
+        style={{
+          marginBottom: "24px",
+          fontSize: "24px",
+          fontWeight: "bold",
+          fontFamily: "Aeonik, sans-serif",
+        }}
+      >
+        Preguntas Frecuentes
+      </h2>
+      <AccordionGroup>
+        <Accordion title="¿Cómo puedo cambiar mi contraseña?">
+          <p>
+            Para cambiar tu contraseña, accede a la página de configuración de
+            tu cuenta, y busca la opción "Cambiar contraseña". Sigue las
+            instrucciones para crear una nueva contraseña segura.
+          </p>
+        </Accordion>
+        <Accordion title="¿Dónde puedo encontrar mis facturas?">
+          <p>
+            Tus facturas están disponibles en la sección "Facturación" dentro de
+            tu cuenta. Allí encontrarás un historial completo de todas tus
+            transacciones y podrás descargar tus facturas en formato PDF.
+          </p>
+        </Accordion>
+        <Accordion title="¿Cómo contactar con atención al cliente?">
+          <p>
+            Puedes contactar con nuestro equipo de atención al cliente a través
+            de:
+          </p>
+          <ul>
+            <li>Email: soporte@ejemplo.com</li>
+            <li>Teléfono: +34 900 123 456</li>
+            <li>
+              Chat en vivo: disponible en nuestra página web, de lunes a
+              viernes, de 9:00 a 18:00
+            </li>
+          </ul>
+        </Accordion>
+      </AccordionGroup>
     </div>
   ),
 };

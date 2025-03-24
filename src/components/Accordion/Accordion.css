@@ -3,52 +3,158 @@
 /* Importar las fuentes */
 @import "../../fonts/fonts.css";
 
-.accordion {
-  border: 1px solid var(--colors-neutral-300);
-  border-radius: var(--borderRadius-sm);
-  background-color: var(--colors-neutral-50);
+/* Accordion base styles */
+.qida-accordion {
+  width: 100%;
+  border-radius: var(--radius-sm);
   margin-bottom: var(--spacing-16);
   overflow: hidden;
+  transition: all 0.3s ease;
 }
 
-.accordion-header {
+.qida-accordion__header {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: var(--spacing-8);
   padding: var(--spacing-16);
+  background: transparent;
   cursor: pointer;
-  background-color: var(--colors-neutral-50);
+  border: none;
+  text-align: left;
   transition: background-color 0.2s ease;
 }
 
-.accordion-header:hover {
-  background-color: var(--colors-neutral-100);
+.qida-accordion__header:hover {
+  background-color: var(--colors-neutral-50);
 }
 
-.accordion-title {
-  margin: 0;
-  font-size: var(--typography-fontSizes-body-lg);
-  font-weight: var(--typography-fontWeights-medium);
-  color: var(--colors-neutral-900);
+.qida-accordion__header:focus-visible {
+  outline: 2px solid var(--colors-primary-500);
+  outline-offset: 2px;
 }
 
-.accordion-icon {
+.qida-accordion__title {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-18);
+  font-weight: var(--font-weight-medium);
+  color: var(--colors-zinc-800);
+  flex: 1;
+}
+
+.qida-accordion__icon {
+  width: 24px;
+  height: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--colors-neutral-600);
+  transition: transform 0.3s ease;
+  position: relative;
+}
+
+.qida-accordion__icon::before {
+  content: "";
+  display: block;
+  width: 14px;
+  height: 8px;
+  background-color: var(--colors-zinc-800);
+  /* Arrow icon - pointing down by default */
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
   transition: transform 0.3s ease;
 }
 
-.accordion-icon.open {
+.qida-accordion--expanded .qida-accordion__icon::before {
+  /* Arrow pointing up when expanded */
   transform: rotate(180deg);
 }
 
-.accordion-content {
+.qida-accordion__content {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition:
+    max-height 0.3s ease,
+    opacity 0.3s ease,
+    padding 0.3s ease;
+}
+
+.qida-accordion--expanded .qida-accordion__content {
+  max-height: 1000px; /* This is a fallback, will be overridden by JS in real implementation */
+  opacity: 1;
   padding: var(--spacing-16);
-  font-size: var(--typography-fontSizes-body-md);
-  line-height: var(--typography-lineHeights-body);
+  padding-top: 0;
+}
+
+.qida-accordion__content-inner {
   color: var(--colors-neutral-800);
-  border-top: 1px solid var(--colors-neutral-300);
-  background-color: var(--colors-base-white);
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-16);
+  line-height: var(--font-line-height-24);
+}
+
+/* Accordion group styles */
+.qida-accordion-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+}
+
+/* Responsive styles */
+@media (max-width: 767px) {
+  .qida-accordion {
+    max-width: 100%;
+  }
+
+  .qida-accordion__header {
+    padding: var(--spacing-12);
+  }
+
+  .qida-accordion__title {
+    font-size: var(--font-size-16);
+  }
+
+  .qida-accordion--expanded .qida-accordion__content {
+    padding: var(--spacing-12);
+    padding-top: 0;
+  }
+}
+
+/* Optional: add border styles */
+.qida-accordion {
+  border: 1px solid var(--colors-neutral-200);
+}
+
+.qida-accordion--expanded {
+  border: 1px solid var(--colors-neutral-300);
+}
+
+/* Focus styles for better keyboard navigation */
+.qida-accordion__header:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--colors-primary-100);
+}
+
+/* Animation when content is shown/hidden */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.qida-accordion--expanded .qida-accordion__content-inner {
+  animation: fadeIn 0.3s ease forwards;
 }

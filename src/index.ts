@@ -10,6 +10,15 @@ export * from "./components/Accordion/Accordion";
 export * from "./components/Typography/Typography";
 export * from "./components/Avatar/Avatar";
 export * from "./components/AlertToast/AlertToast";
+export * from "./components/Badge/Badge";
+export * from "./components/Breadcrumb/Breadcrumb";
+export * from "./components/Checkbox";
+export * from "./components/RadioButton";
+export * from "./components/Dropdown";
+export * from "./components/DropdownItem";
+export * from "./components/Filter";
+export * from "./components/Footer";
+export * from "./components/Header";
 
 // Exportar tipos si es necesario
 export interface DesignTokensConfig {

@@ -1,0 +1,129 @@
+/* Importar las variables CSS de los tokens */
+@import "../../tokens/dist/variables.css";
+/* Importar las fuentes */
+@import "../../fonts/fonts.css";
+
+/* Base styles */
+.qida-footer {
+  width: 100%;
+  font-family: var(--font-family-primary);
+  color: var(--colors-neutral-900);
+}
+
+/* Desktop version */
+.qida-footer-desktop {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  background-color: #ffefda;
+  border-radius: 16px;
+  height: 120px;
+}
+
+.qida-footer-image {
+  margin-right: 24px;
+}
+
+.qida-footer-image img {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.qida-footer-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex: 1;
+}
+
+.qida-footer-title {
+  font-size: 22px;
+  line-height: 32px;
+  font-weight: 500;
+  margin: 0;
+  color: #333;
+}
+
+.qida-footer-advisor-text {
+  font-size: 18px;
+  line-height: 24px;
+  margin: 0;
+  color: #333;
+}
+
+.qida-footer-contact-info {
+  font-size: 18px;
+  line-height: 24px;
+  margin: 0;
+  color: #333;
+}
+
+.qida-footer-email {
+  text-decoration: underline;
+}
+
+/* Mobile version */
+.qida-footer-mobile {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px;
+  background-color: #ffefda;
+  border-radius: 16px;
+  max-width: 328px;
+  margin: 0 auto;
+  text-align: center;
+  height: 292px;
+}
+
+.qida-footer-title-mobile {
+  font-size: 22px;
+  line-height: 32px;
+  font-weight: 500;
+  margin: 0 0 24px 0;
+  color: #333;
+}
+
+.qida-footer-image-mobile {
+  margin-bottom: 24px;
+}
+
+.qida-footer-image-mobile img {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.qida-footer-info-mobile {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.qida-footer-advisor-text-mobile {
+  font-size: 18px;
+  line-height: 24px;
+  margin: 0;
+  color: #333;
+}
+
+.qida-footer-contact-info-mobile {
+  font-size: 18px;
+  line-height: 24px;
+  margin: 0;
+  color: #333;
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+  .qida-footer-desktop {
+    display: none;
+  }
+
+  .qida-footer-mobile {
+    display: flex;
+  }
+}

@@ -1,0 +1,497 @@
+/* Importar las variables CSS de los tokens */
+@import "../../tokens/dist/variables.css";
+/* Importar las fuentes */
+@import "../../fonts/fonts.css";
+
+/* Base styles for card */
+.qida-card {
+  position: relative;
+  box-shadow:
+    0px 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0px 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border-radius: 8px;
+  background-color: #e6eceb;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  box-sizing: border-box;
+  gap: 32px;
+  text-align: left;
+  font-size: 18px;
+  color: #333;
+  font-family: Aeonik;
+}
+
+/* Size variants */
+.qida-card--desktop {
+  width: 830px;
+}
+
+.qida-card--mobile {
+  width: 360px;
+}
+
+/* Variant specific styles */
+.qida-card--home {
+  gap: 32px;
+}
+
+.qida-card--evolution {
+  background-color: #e6eceb;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.qida-card--best-action {
+  background-color: #ffefda;
+  padding: 12px 24px 24px;
+  min-width: 360px;
+  max-width: 830px;
+}
+
+.qida-card--best-action.qida-card--desktop {
+  padding: 24px;
+}
+
+.qida-card--content {
+  background-color: #fff;
+  border: 1px solid #e5e5e5;
+  padding: 12px;
+  gap: 0px;
+  min-width: 245px;
+  max-height: 385px;
+  height: 385px;
+  width: 245px;
+  align-items: flex-end;
+  justify-content: space-between;
+  color: #7f6324;
+}
+
+/* Content styles */
+.qida-card__content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
+.qida-card--mobile .qida-card__content {
+  align-self: stretch;
+  flex-direction: column;
+}
+
+.qida-card__text {
+  width: 598px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 24px;
+}
+
+.qida-card--mobile .qida-card__text {
+  align-self: stretch;
+  width: auto;
+}
+
+.qida-card--evolution .qida-card__text {
+  align-self: stretch;
+  flex: 1;
+}
+
+.qida-card__paragraph {
+  align-self: stretch;
+  position: relative;
+  line-height: 24px;
+  color: #333;
+}
+
+.qida-card--best-action .qida-card__paragraph {
+  align-self: stretch;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.qida-card__image {
+  width: 160px;
+  position: relative;
+  border-radius: 50%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.qida-card--mobile .qida-card__image {
+  width: 120px;
+  height: 120px;
+}
+
+/* Avatar styles */
+.qida-card__avatar-text {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 8px;
+}
+
+.qida-card__avatar {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 10px;
+}
+
+.qida-card__avatar-image {
+  width: 60px;
+  position: relative;
+  border-radius: 50%;
+  height: 60px;
+  object-fit: cover;
+}
+
+/* Best action styles */
+.qida-card__content-close {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 4px;
+}
+
+.qida-card__content-best-action {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+}
+
+.qida-card__close {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 10px 0px;
+}
+
+.qida-card__close-icon {
+  width: 8px;
+  position: relative;
+  height: 8px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='18' y1='6' x2='6' y2='18'%3E%3C/line%3E%3Cline x1='6' y1='6' x2='18' y2='18'%3E%3C/line%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.qida-card__text-icon {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 12px;
+}
+
+.qida-card__icon-services {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.qida-card__vector-icon {
+  width: 18px;
+  position: relative;
+  height: 21px;
+}
+
+/* Main content for best action desktop */
+.qida-card__main-content {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.qida-card__heading-body {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 8px;
+}
+
+.qida-card__heading {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+.qida-card__icon-close {
+  width: 24px;
+  height: 24px;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.qida-card__icon-close-vector {
+  width: 12px;
+  position: relative;
+  height: 12px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='18' y1='6' x2='6' y2='18'%3E%3C/line%3E%3Cline x1='6' y1='6' x2='18' y2='18'%3E%3C/line%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.qida-card__text-button {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 32px;
+}
+
+/* Content card styles */
+.qida-card__image-container {
+  align-self: stretch;
+  border-radius: 4px;
+  height: 145px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 8px;
+  box-sizing: border-box;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+
+.qida-card__title {
+  align-self: stretch;
+  position: relative;
+  line-height: 24px;
+  font-weight: 500;
+  color: #111827;
+}
+
+.qida-card__subtitle {
+  align-self: stretch;
+  position: relative;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+  color: #666;
+}
+
+.qida-card__content-text {
+  align-self: stretch;
+  position: relative;
+  font-size: 20px;
+  line-height: 28px;
+  color: #333;
+}
+
+.qida-card__icon-placeholder {
+  width: 40px;
+  border-radius: 20px;
+  background-color: #f8f8f8;
+  border: 0.5px solid #d9d9d9;
+  box-sizing: border-box;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 10px;
+}
+
+.qida-card__icon-placeholder-inner {
+  width: 20px;
+  position: relative;
+  background-color: #d9d9d9;
+  height: 20px;
+}
+
+/* Button styles */
+.qida-card__buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 24px;
+  text-align: center;
+  font-size: 14px;
+  color: #fff;
+}
+
+.qida-card--mobile .qida-card__buttons {
+  align-self: stretch;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 16px;
+}
+
+.qida-card__button {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  text-align: center;
+  font-size: 14px;
+  color: #fff;
+}
+
+.qida-card__primary-button {
+  border-radius: 8px;
+  background-color: #004039;
+  height: 40px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  box-sizing: border-box;
+  min-width: 96px;
+  cursor: pointer;
+}
+
+.qida-card--mobile .qida-card__primary-button {
+  align-self: stretch;
+  flex-shrink: 0;
+}
+
+.qida-card__secondary-button {
+  border-radius: 8px;
+  border: 1px solid #004039;
+  box-sizing: border-box;
+  height: 40px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  min-width: 96px;
+  color: #004039;
+  cursor: pointer;
+}
+
+.qida-card--mobile .qida-card__secondary-button {
+  align-self: stretch;
+  flex-shrink: 0;
+}
+
+.qida-card--content .qida-card__primary-button {
+  align-self: stretch;
+  height: 24px;
+  font-size: 12px;
+}
+
+.qida-card--content .qida-card__label-text {
+  line-height: 16px;
+}
+
+.qida-card__label-text {
+  position: relative;
+  line-height: 20px;
+  font-weight: 500;
+  color: inherit;
+}
+
+/* Notification card styles */
+.qida-card--notification {
+  background-color: #fff;
+  border: 1px solid #e5e5e5;
+  padding: 16px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.qida-card__notification-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.qida-card__notification-icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.qida-card__notification-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.qida-card__notification-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.qida-card__notification-title {
+  font-weight: 500;
+  color: #111827;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.qida-card__notification-message {
+  color: #4b5563;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.qida-card__notification-close {
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9ca3af;
+  transition: color 0.2s;
+}
+
+.qida-card__notification-close:hover {
+  color: #4b5563;
+}
+
+.qida-card__notification-close img {
+  width: 16px;
+  height: 16px;
+}

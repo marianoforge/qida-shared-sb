@@ -1,0 +1,239 @@
+/* Base styles for Alert Sticky */
+.qida-alert-sticky {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000; /* High z-index to stay on top */
+  box-shadow:
+    0 1px 2px 0 rgba(0, 0, 0, 0.06),
+    0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+  opacity: 1;
+  border-radius: var(--radius-lg, 8px);
+  width: auto; /* Ancho definido por el contenido */
+}
+
+/* Position variants */
+.qida-alert-sticky--top {
+  top: 16px;
+}
+
+.qida-alert-sticky--bottom {
+  bottom: 16px;
+}
+
+/* Exit animation states */
+.qida-alert-sticky--exiting {
+  opacity: 0;
+}
+
+.qida-alert-sticky--top.qida-alert-sticky--exiting {
+  transform: translate(-50%, -100%);
+}
+
+.qida-alert-sticky--bottom.qida-alert-sticky--exiting {
+  transform: translate(-50%, 100%);
+}
+
+/* Type variants backgrounds */
+.qida-alert-sticky--informative {
+  background-color: var(--colors-emerald-50, #ecfdf5);
+}
+
+.qida-alert-sticky--success {
+  background-color: var(--colors-emerald-50, #ecfdf5);
+}
+
+.qida-alert-sticky--warning {
+  background-color: var(--colors-yellow-50, #fffbeb);
+}
+
+.qida-alert-sticky--error {
+  background-color: var(--colors-rose-100, #ffe4e6);
+}
+
+/* Content container */
+.qida-alert-sticky__content {
+  width: 720px; /* Ancho fijo como en el diseño */
+  display: flex;
+  align-items: flex-start;
+  padding: var(--spacing-16, 16px);
+  gap: var(--spacing-16, 16px);
+}
+
+/* Multi-line variant */
+.qida-alert-sticky--multi-line .qida-alert-sticky__message-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8, 8px);
+}
+
+/* Icon styles */
+.qida-alert-sticky__icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  position: relative;
+}
+
+/* Type-specific icons using pseudo-elements */
+.qida-alert-sticky--informative .qida-alert-sticky__icon::before {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-color: var(--colors-teal-600, #0d9488);
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor'%3E%3Cpath fill-rule='evenodd' d='M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z' clip-rule='evenodd'/%3E%3C/svg%3E");
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+}
+
+.qida-alert-sticky--success .qida-alert-sticky__icon::before {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-color: var(--colors-green-700, #15803d);
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor'%3E%3Cpath fill-rule='evenodd' d='M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z' clip-rule='evenodd'/%3E%3C/svg%3E");
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+}
+
+.qida-alert-sticky--warning .qida-alert-sticky__icon::before {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-color: var(--colors-yellow-600, #ca8a04);
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor'%3E%3Cpath fill-rule='evenodd' d='M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z' clip-rule='evenodd'/%3E%3C/svg%3E");
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+}
+
+.qida-alert-sticky--error .qida-alert-sticky__icon::before {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-color: var(--colors-red-800, #991b1b);
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor'%3E%3Cpath fill-rule='evenodd' d='M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z' clip-rule='evenodd'/%3E%3C/svg%3E");
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+}
+
+/* Message container and text */
+.qida-alert-sticky__message-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.qida-alert-sticky__message {
+  font-family: var(--font-family-primary, "Aeonik", sans-serif);
+  font-size: var(--font-size-16, 16px);
+  font-weight: var(--font-weight-normal, 400);
+  line-height: var(--font-line-height-24, 24px);
+  color: var(--colors-zinc-800, #27272a);
+  mix-blend-mode: multiply;
+}
+
+/* Link styles */
+.qida-alert-sticky__link-container {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8, 8px);
+  margin-top: var(--spacing-4, 4px);
+}
+
+.qida-alert-sticky__link {
+  font-family: var(--font-family-primary, "Aeonik", sans-serif);
+  font-size: var(--font-size-16, 16px);
+  font-weight: var(--font-weight-normal, 400);
+  line-height: var(--font-line-height-24, 24px);
+  color: var(--colors-teal-950, #042f2e);
+  text-decoration: underline;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8, 8px);
+}
+
+.qida-alert-sticky__link:hover {
+  color: var(--colors-teal-700, #0f766e);
+}
+
+.qida-alert-sticky__link:focus-visible {
+  outline: 2px solid var(--colors-teal-500, #14b8a6);
+  outline-offset: 2px;
+}
+
+.qida-alert-sticky__link-icon {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  position: relative;
+}
+
+.qida-alert-sticky__link-icon::before {
+  content: "";
+  display: block;
+  width: 12px;
+  height: 12px;
+  background-color: var(--colors-emerald-900, #064e3b);
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor'%3E%3Cpath fill-rule='evenodd' d='M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z' clip-rule='evenodd'/%3E%3C/svg%3E");
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+}
+
+/* Close button styles */
+.qida-alert-sticky__close-button {
+  width: 24px;
+  height: 24px;
+  padding: 6px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm, 4px);
+  flex-shrink: 0;
+}
+
+.qida-alert-sticky__close-button:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.qida-alert-sticky__close-button:focus-visible {
+  outline: 2px solid var(--colors-teal-500, #14b8a6);
+  outline-offset: 2px;
+}
+
+/* Responsive styles for mobile */
+@media (max-width: 767px) {
+  .qida-alert-sticky__content {
+    width: 384px; /* Ancho fijo para móvil según el diseño w-96 */
+    padding: var(--spacing-16, 16px);
+  }
+
+  /* El resto del código responsivo se mantiene igual */
+}

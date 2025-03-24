@@ -1,0 +1,53 @@
+/* Importar las variables CSS de los tokens */
+@import "../../tokens/dist/variables.css";
+/* Importar las fuentes */
+@import "../../fonts/fonts.css";
+
+/* Base styles */
+.qida-navbar {
+  width: 100%;
+  height: 56px;
+  background-color: #f5f5f5;
+  font-family: var(--font-family-primary);
+  display: flex;
+  justify-content: center;
+}
+
+.qida-navbar__container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 40px;
+}
+
+.qida-navbar__item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  gap: 16px;
+}
+
+.qida-navbar__item:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.qida-navbar__item--active {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.qida-navbar__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+}
+
+.qida-navbar__label {
+  font-size: 20px;
+  line-height: 28px;
+  color: #333;
+}

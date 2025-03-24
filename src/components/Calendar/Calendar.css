@@ -1,0 +1,201 @@
+/* Variables para facilitar la personalización */
+:root {
+  --calendar-font-family: var(--font-family-primary, "Aeonik", sans-serif);
+  --calendar-primary-color: var(--colors-emerald-900, #064e3b);
+  --calendar-text-color: var(--colors-zinc-800, #27272a);
+  --calendar-muted-color: var(--colors-stone-500, #78716c);
+  --calendar-border-color: var(--colors-neutral-200, #e5e5e5);
+  --calendar-highlight-color: var(--colors-emerald-900, #064e3b);
+  --calendar-special-color: var(--colors-yellow-600, #ca8a04);
+  --calendar-selected-color: var(--colors-zinc-400, #a1a1aa);
+  --calendar-day-width-desktop: 24px;
+  --calendar-day-width-mobile: 40px;
+  --calendar-day-height-desktop: 24px;
+  --calendar-day-height-mobile: 40px;
+  --calendar-border-radius: 50px;
+}
+
+/* Base del calendario */
+.qida-calendar {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--calendar-font-family);
+  color: var(--calendar-text-color);
+  width: 100%;
+}
+
+/* Estilos para la navegación (versión móvil) */
+.qida-calendar__navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  margin-bottom: 8px;
+}
+
+.qida-calendar__nav-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  transition: background-color 0.2s;
+}
+
+.qida-calendar__nav-button:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.qida-calendar__nav-button:focus-visible {
+  outline: 2px solid var(--calendar-primary-color);
+  outline-offset: 2px;
+}
+
+.qida-calendar__nav-title {
+  font-size: 14px;
+  font-weight: normal;
+  text-align: center;
+  flex: 1;
+}
+
+/* Grid para visualización de calendario */
+.qida-calendar__grid {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+/* Versión desktop (múltiples meses) */
+.qida-calendar__grid--desktop {
+  gap: 16px;
+}
+
+/* Estructura de cada mes */
+.qida-calendar__month {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 200px;
+}
+
+.qida-calendar__month-name {
+  font-size: 14px;
+  font-weight: normal;
+  margin-bottom: 8px;
+  color: var(--calendar-text-color);
+}
+
+.qida-calendar__month-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px 0;
+}
+
+/* Etiquetas de días de la semana */
+.qida-calendar__weekday {
+  text-align: center;
+  font-size: 14px;
+  font-weight: normal;
+  color: var(--calendar-text-color);
+  padding-bottom: 8px;
+}
+
+/* Estilos para los días */
+.qida-calendar__day {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 14px;
+  text-align: center;
+  transition: all 0.2s;
+  position: relative;
+}
+
+/* Versión desktop */
+.qida-calendar--desktop .qida-calendar__day {
+  height: var(--calendar-day-height-desktop);
+  width: var(--calendar-day-width-desktop);
+}
+
+/* Versión mobile */
+.qida-calendar--mobile .qida-calendar__day {
+  height: var(--calendar-day-height-mobile);
+  width: var(--calendar-day-width-mobile);
+}
+
+/* Día del mes actual vs otros meses */
+.qida-calendar__day--current-month {
+  color: var(--calendar-muted-color);
+}
+
+.qida-calendar__day--other-month {
+  color: var(--calendar-muted-color);
+  opacity: 0.5;
+}
+
+/* Día seleccionado */
+.qida-calendar__day--selected {
+  outline: 2px solid var(--calendar-selected-color);
+  outline-offset: -2px;
+  border-radius: var(--calendar-border-radius);
+}
+
+/* Día dentro de un rango seleccionado */
+.qida-calendar__day--in-range {
+  background-color: rgba(6, 78, 59, 0.1);
+}
+
+/* Día destacado (con borde inferior) */
+.qida-calendar__day--highlighted {
+  font-weight: bold;
+  color: var(--calendar-highlight-color);
+  border-bottom: 2px solid var(--calendar-highlight-color);
+}
+
+/* Día especial (con color personalizable) */
+.qida-calendar__day--special {
+  outline: 2px solid var(--day-special-color, var(--calendar-special-color));
+  outline-offset: -2px;
+  border-radius: var(--calendar-border-radius);
+}
+
+/* Día deshabilitado */
+.qida-calendar__day--disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* Hover y focus para mejor interactividad */
+.qida-calendar__day:not(.qida-calendar__day--disabled):hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: var(--calendar-border-radius);
+}
+
+.qida-calendar__day:focus-visible {
+  outline: 2px solid var(--calendar-primary-color);
+  outline-offset: 2px;
+  border-radius: var(--calendar-border-radius);
+}
+
+/* Chevron icons */
+.qida-calendar__chevron {
+  width: 24px;
+  height: 24px;
+  color: var(--calendar-text-color);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .qida-calendar__grid--desktop {
+    flex-direction: column;
+  }
+
+  .qida-calendar__month {
+    margin-bottom: 24px;
+  }
+}

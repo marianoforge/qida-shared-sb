@@ -1,0 +1,135 @@
+/* Importar las variables CSS de los tokens */
+@import "../../tokens/dist/variables.css";
+/* Importar las fuentes */
+@import "../../fonts/fonts.css";
+
+/* Base styles */
+.qida-header {
+  width: 100%;
+  height: 64px;
+  background-color: #004039;
+  color: white;
+  font-family: var(--font-family-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Mobile header styles */
+.qida-header__mobile {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 0 16px;
+}
+
+/* Desktop header styles */
+.qida-header__desktop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 0 24px;
+  max-width: 1200px;
+}
+
+/* Logo styles */
+.qida-header__logo {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.qida-header__logo-img {
+  height: 32px;
+}
+
+/* Coordinator tag styles */
+.qida-header__tag {
+  display: flex;
+  align-items: center;
+  margin-left: 16px;
+  padding: 0 16px;
+  height: 24px;
+  border-radius: 12px;
+  background-color: #ff8a5d;
+}
+
+.qida-header__tag-text {
+  font-size: 12px;
+  font-weight: 500;
+  color: white;
+}
+
+/* Right section styles */
+.qida-header__right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.qida-header__left {
+  display: flex;
+  align-items: center;
+}
+
+/* Icon styles */
+.qida-header__icon-chat,
+.qida-header__icon-notification,
+.qida-header__icon-phone,
+.qida-header__icon-settings,
+.qida-header__menu-icon {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Avatar styles */
+.qida-header__avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.qida-header__avatar--large {
+  width: 40px;
+  height: 40px;
+}
+
+/* Menu text styles */
+.qida-header__menu-text {
+  font-size: 14px;
+  font-weight: 500;
+  margin-right: 8px;
+}
+
+/* Icons container for mobile */
+.qida-header__icons {
+  display: flex;
+  align-items: center;
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+  .qida-header {
+    height: 56px;
+  }
+
+  .qida-header__desktop {
+    padding: 0 16px;
+  }
+
+  .qida-header__logo-img {
+    height: 28px;
+  }
+
+  .qida-header__right {
+    gap: 16px;
+  }
+}

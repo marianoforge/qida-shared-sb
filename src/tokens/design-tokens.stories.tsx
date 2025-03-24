@@ -1,4 +1,5 @@
 import React from "react";
+import "./design-tokens.css";
 import { tokens } from "./dist/tokens";
 import "./design-tokens.css";
 
@@ -311,11 +312,39 @@ export const Layouts = () => {
 };
 
 export const BorderRadius = () => {
-  const borderRadiusTokens = typedTokens.global.borderRadius;
+  const cssVarPrefix = "radius";
+
+  const getRadiusTokens = () => {
+    const radiusTokens = {};
+    for (const key of ["none", "xs", "sm", "md", "full"]) {
+      const value = getComputedStyle(document.documentElement)
+        .getPropertyValue(`--${cssVarPrefix}-${key}`)
+        .trim();
+      if (value) radiusTokens[key] = value;
+    }
+    return Object.keys(radiusTokens).length > 0
+      ? radiusTokens
+      : {
+          none: "0px",
+          xs: "4px",
+          sm: "8px",
+          md: "16px",
+          full: "9999px",
+        };
+  };
+
+  const borderRadiusTokens =
+    typedTokens?.global?.borderRadius || getRadiusTokens();
 
   return (
     <div className="token-page">
       <h1>Border Radius Tokens</h1>
+      {!typedTokens?.global?.borderRadius && (
+        <p className="warning-message" style={{ color: "orange" }}>
+          ⚠️ Usando valores de ejemplo. Los tokens reales no fueron encontrados.
+          Por favor regenera los tokens.
+        </p>
+      )}
       <div className="radius-grid">
         {Object.entries(borderRadiusTokens).map(([name, value]) => (
           <div key={name} className="radius-item">
@@ -365,11 +394,52 @@ export const Spacing = () => {
 };
 
 export const Typography = () => {
-  const typography = typedTokens.global.typography;
+  // Crear un objeto de tipografía fallback
+  const defaultTypography = {
+    fontFamily: "Aeonik, sans-serif",
+    fontWeights: {
+      regular: "400",
+      medium: "500",
+      bold: "700",
+    },
+    fontSizes: {
+      "11": "11px",
+      "12": "12px",
+      "14": "14px",
+      "16": "16px",
+      "18": "18px",
+      "20": "20px",
+      "22": "22px",
+      "36": "36px",
+      "56": "56px",
+    },
+    lineHeights: {
+      "16": "16px",
+      "20": "20px",
+      "24": "24px",
+      "28": "28px",
+      "32": "32px",
+      "48": "48px",
+      "73": "73px",
+    },
+  };
+
+  // Usar los valores reales o fallback para cada sección
+  const typography = typedTokens?.global?.typography || defaultTypography;
+  const fontWeights = typography?.fontWeights || defaultTypography.fontWeights;
+  const fontSizes = typography?.fontSizes || defaultTypography.fontSizes;
+  const lineHeights = typography?.lineHeights || defaultTypography.lineHeights;
 
   return (
     <div className="token-page">
       <h1>Typography System</h1>
+
+      {!typedTokens?.global?.typography && (
+        <p className="warning-message" style={{ color: "orange" }}>
+          ⚠️ Usando valores de ejemplo. Los tokens de tipografía no fueron
+          encontrados. Por favor regenera los tokens.
+        </p>
+      )}
 
       {/* Font Family */}
       <div className="typography-section">
@@ -400,7 +470,7 @@ export const Typography = () => {
           <h2>Font Weights</h2>
         </div>
         <div className="typography-grid">
-          {Object.entries(typography.fontWeights).map(([name, weight]) => (
+          {Object.entries(fontWeights).map(([name, weight]) => (
             <div key={name} className="typography-item">
               <div className="typography-preview">
                 <div
@@ -434,7 +504,7 @@ export const Typography = () => {
           <h2>Font Sizes</h2>
         </div>
         <div className="typography-grid">
-          {Object.entries(typography.fontSizes).map(([name, size]) => (
+          {Object.entries(fontSizes).map(([name, size]) => (
             <div key={name} className="typography-item">
               <div className="typography-preview">
                 <div style={{ fontSize: size }}>
@@ -462,7 +532,7 @@ export const Typography = () => {
           <h2>Line Heights</h2>
         </div>
         <div className="typography-grid">
-          {Object.entries(typography.lineHeights).map(([name, height]) => (
+          {Object.entries(lineHeights).map(([name, height]) => (
             <div key={name} className="typography-item">
               <div className="typography-preview">
                 <div className="line-height-preview">
@@ -490,6 +560,29 @@ export const Typography = () => {
           ))}
         </div>
       </div>
+    </div>
+  );
+};
+
+export const DebugTokens = () => {
+  return (
+    <div className="token-page">
+      <h1>Token Structure Debug</h1>
+      <pre
+        style={{
+          textAlign: "left",
+          overflow: "auto",
+          maxHeight: "500px",
+          background: "#f5f5f5",
+          padding: "1rem",
+        }}
+      >
+        Tokens disponibles: {Object.keys(tokens).join(", ")}
+        {"\n\n"}
+        GlobalTokens: {Object.keys(typedTokens?.global || {}).join(", ")}
+        {"\n\n"}
+        Token structure: {JSON.stringify(tokens, null, 2)}
+      </pre>
     </div>
   );
 };

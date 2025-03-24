@@ -40,14 +40,9 @@ export const ImageAvatar: Story = {
   args: {
     type: "image",
     size: "md",
-    imageUrl: "https://i.pravatar.cc/300",
-    alt: "User avatar",
+    src: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&h=300&q=80",
+    alt: "Jane Doe",
   },
-  render: (args) => (
-    <AvatarContainer>
-      <Avatar {...args} />
-    </AvatarContainer>
-  ),
 };
 
 export const TextAvatar: Story = {
@@ -110,6 +105,138 @@ export const AllSizes: Story = {
       <Avatar {...args} size="sm" />
       <Avatar {...args} size="md" />
       <Avatar {...args} size="lg" />
+    </div>
+  ),
+};
+
+export const SizesWithImages: Story = {
+  render: () => (
+    <div style={{ display: "flex", gap: "16px", alignItems: "center" }}>
+      <div>
+        <Avatar
+          type="image"
+          size="sm"
+          src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300&q=80"
+          alt="Usuario pequeño"
+        />
+        <div
+          style={{ marginTop: "8px", fontSize: "12px", textAlign: "center" }}
+        >
+          sm
+        </div>
+      </div>
+      <div>
+        <Avatar
+          type="image"
+          size="md"
+          src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300&q=80"
+          alt="Usuario mediano"
+        />
+        <div
+          style={{ marginTop: "8px", fontSize: "12px", textAlign: "center" }}
+        >
+          md
+        </div>
+      </div>
+      <div>
+        <Avatar
+          type="image"
+          size="lg"
+          src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300&q=80"
+          alt="Usuario grande"
+        />
+        <div
+          style={{ marginTop: "8px", fontSize: "12px", textAlign: "center" }}
+        >
+          lg
+        </div>
+      </div>
+    </div>
+  ),
+};
+
+export const AllTypes: Story = {
+  render: () => (
+    <div style={{ display: "flex", gap: "16px", alignItems: "center" }}>
+      <div>
+        <Avatar type="icon" size="lg" alt="Usuario" />
+        <div
+          style={{ marginTop: "8px", fontSize: "12px", textAlign: "center" }}
+        >
+          Icon
+        </div>
+      </div>
+      <div>
+        <Avatar
+          type="image"
+          size="lg"
+          src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300&q=80"
+          alt="Usuario"
+        />
+        <div
+          style={{ marginTop: "8px", fontSize: "12px", textAlign: "center" }}
+        >
+          Image
+        </div>
+      </div>
+      <div>
+        <Avatar type="text" size="lg" text="MS" alt="María Simone" />
+        <div
+          style={{ marginTop: "8px", fontSize: "12px", textAlign: "center" }}
+        >
+          Text
+        </div>
+      </div>
+    </div>
+  ),
+};
+
+export const ClickableAvatar: Story = {
+  args: {
+    type: "image",
+    size: "lg",
+    src: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300&q=80",
+    alt: "Jane Doe",
+    onClick: () => alert("Avatar clicked!"),
+  },
+};
+
+export const AvatarGroup: Story = {
+  render: () => (
+    <div>
+      <h3 style={{ marginBottom: "16px" }}>Equipo del Proyecto</h3>
+      <div style={{ display: "flex", alignItems: "center" }}>
+        <div style={{ marginRight: "-8px", zIndex: 5 }}>
+          <Avatar
+            type="image"
+            size="md"
+            src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150&q=80"
+            alt="Usuario 1"
+          />
+        </div>
+        <div style={{ marginRight: "-8px", zIndex: 4 }}>
+          <Avatar
+            type="image"
+            size="md"
+            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150&q=80"
+            alt="Usuario 2"
+          />
+        </div>
+        <div style={{ marginRight: "-8px", zIndex: 3 }}>
+          <Avatar
+            type="image"
+            size="md"
+            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150&q=80"
+            alt="Usuario 3"
+          />
+        </div>
+        <div style={{ marginRight: "-8px", zIndex: 2 }}>
+          <Avatar type="text" size="md" text="ML" alt="María López" />
+        </div>
+        <div style={{ zIndex: 1 }}>
+          <Avatar type="text" size="md" text="+3" alt="3 usuarios más" />
+        </div>
+      </div>
     </div>
   ),
 };

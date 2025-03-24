@@ -1,0 +1,147 @@
+/* Importar las variables CSS de los tokens */
+@import "../../tokens/dist/variables.css";
+/* Importar las fuentes */
+@import "../../fonts/fonts.css";
+
+.qida-radio-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 8px;
+}
+
+.qida-radio {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 8px 16px 8px 8px;
+  gap: 4px;
+  border-radius: 8px;
+  background-color: #fff;
+  border: 1px solid #e5e5e5;
+  box-sizing: border-box;
+  height: 48px;
+  width: 100%;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.qida-radio:hover {
+  background-color: #e5e5e5;
+  border-color: #999;
+}
+
+.qida-radio--error {
+  border-color: #a52222;
+}
+
+.qida-radio--disabled {
+  background-color: #f5f5f5;
+  border-color: #e5e5e5;
+  color: #666;
+  cursor: not-allowed;
+}
+
+/* Estilizar el contenedor del input para que no sea visible */
+.qida-radio__input-container {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+}
+
+.qida-radio__input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Estilo del icono del radio button */
+.qida-radio__icon {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  position: relative;
+}
+
+.qida-radio__circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 2px solid #444;
+  box-sizing: border-box;
+}
+
+.qida-radio:hover .qida-radio__circle {
+  border-color: #333;
+}
+
+.qida-radio--error .qida-radio__circle {
+  border-color: #a52222;
+}
+
+.qida-radio--disabled .qida-radio__circle {
+  border-color: #999;
+}
+
+/* Estado checked */
+.qida-radio__icon--checked .qida-radio__circle {
+  border: 5px solid #004039;
+}
+
+.qida-radio:hover .qida-radio__icon--checked .qida-radio__circle {
+  border-color: #336661;
+}
+
+.qida-radio--disabled .qida-radio__icon--checked .qida-radio__circle {
+  border-color: #b0c4c2;
+}
+
+/* Etiqueta */
+.qida-radio__label {
+  flex: 1;
+  line-height: 24px;
+  font-size: 16px;
+  color: #333;
+  font-family: var(--font-family-primary);
+}
+
+.qida-radio--disabled .qida-radio__label {
+  color: #666;
+}
+
+/* Mensaje de error */
+.qida-radio__error-message {
+  padding: 0 16px;
+  font-size: 14px;
+  line-height: 20px;
+  color: #a52222;
+  font-weight: 500;
+  font-family: var(--font-family-primary);
+}
+
+/* Estado focus */
+.qida-radio:focus-within {
+  border: 4px solid #8aa7a4;
+  height: 52px;
+  padding: 6px 14px 6px 6px;
+}
+
+/* Radio con label seleccionado */
+.qida-radio:has(input:checked) {
+  border-color: #004039;
+}
+
+.qida-radio--disabled:has(input:checked) {
+  border-color: #b0c4c2;
+}

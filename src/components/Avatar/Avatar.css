@@ -1,49 +1,128 @@
 /* Importar las variables CSS de los tokens */
 @import "../../tokens/dist/variables.css";
 
-.avatar {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  border-radius: var(--borderRadius-full);
-  background-color: var(--colors-neutral-100);
-  color: var(--colors-neutral-700);
-  font-weight: var(--typography-fontWeights-medium);
-}
-
-/* Tamaños de avatar */
-.avatar-sm {
-  width: 24px;
-  height: 24px;
-  font-size: calc(24px * 0.4);
-}
-
-.avatar-md {
-  width: 32px;
-  height: 32px;
-  font-size: calc(32px * 0.4);
-}
-
-.avatar-lg {
-  width: 48px;
-  height: 48px;
-  font-size: calc(48px * 0.4);
-}
-
-/* Tipos de avatar */
-.avatar-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.avatar-icon {
+/* Base styles for all avatars */
+.qida-avatar {
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: var(--colors-neutral-100, #f5f5f5);
+  color: var(--colors-zinc-800, #27272a);
+  font-family: var(--font-family-primary, "Aeonik", sans-serif);
+  font-weight: var(--font-weight-medium, 500);
+  user-select: none;
 }
 
-.avatar-text {
-  text-transform: uppercase;
+/* Size variants */
+.qida-avatar--sm {
+  width: 24px;
+  height: 24px;
+  font-size: var(--font-size-12, 12px);
+  line-height: var(--font-line-height-none, 1);
+}
+
+.qida-avatar--md {
+  width: 32px;
+  height: 32px;
+  font-size: var(--font-size-14, 14px);
+  line-height: var(--font-line-height-tight, 1.25);
+}
+
+.qida-avatar--lg {
+  width: 48px;
+  height: 48px;
+  font-size: var(--font-size-18, 18px);
+  line-height: var(--font-line-height-normal, 1.5);
+}
+
+/* Type variants */
+.qida-avatar--text {
+  background-color: var(--colors-emerald-50, #ecfdf5);
+}
+
+.qida-avatar--image {
+  background-color: transparent;
+}
+
+.qida-avatar--icon svg {
+  fill: currentColor;
+}
+
+/* Contenido específico para cada tipo */
+.qida-avatar__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.qida-avatar__text {
+  font-weight: var(--font-weight-medium, 500);
+  text-align: center;
+}
+
+.qida-avatar__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* Tamaños de ícono según tamaño del avatar */
+.qida-avatar--sm .qida-avatar__icon {
+  padding: 1px;
+}
+
+.qida-avatar--sm .qida-avatar__icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.qida-avatar--md .qida-avatar__icon {
+  padding: 2px;
+}
+
+.qida-avatar--md .qida-avatar__icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.qida-avatar--lg .qida-avatar__icon {
+  padding: 3px;
+}
+
+.qida-avatar--lg .qida-avatar__icon svg {
+  width: 40px;
+  height: 40px;
+}
+
+/* Estilos interactivos cuando es clickeable */
+.qida-avatar[role="button"] {
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.qida-avatar[role="button"]:hover {
+  transform: scale(1.05);
+}
+
+.qida-avatar[role="button"]:focus-visible {
+  outline: 2px solid var(--colors-emerald-500, #10b981);
+  outline-offset: 2px;
+}
+
+/* Accesibilidad - asegurar contraste para texto */
+.qida-avatar--text .qida-avatar__text {
+  color: var(--colors-zinc-800, #27272a);
+}
+
+@media (prefers-reduced-motion) {
+  .qida-avatar {
+    transition: none;
+  }
 }

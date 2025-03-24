@@ -3,25 +3,25 @@
     "colors": {
       "primary": {
         "50": {
-          "value": "#E6F0ED"
+          "value": "#E6ECEB"
         },
         "100": {
-          "value": "#C0DBD4"
+          "value": "#B0C4C2"
         },
         "200": {
-          "value": "#9BC7BA"
+          "value": "#8AA7A4"
         },
         "300": {
           "value": "#76B2A1"
         },
         "400": {
-          "value": "#519E87"
+          "value": "#336661"
         },
         "500": {
-          "value": "#2C8970"
+          "value": "#004039"
         },
         "600": {
-          "value": "#1F6855"
+          "value": "#003A34"
         },
         "700": {
           "value": "#14493B"
@@ -50,7 +50,7 @@
           "value": "#FF7A45"
         },
         "500": {
-          "value": "#FA541C"
+          "value": "#FF8A5D"
         },
         "600": {
           "value": "#D4380D"
@@ -62,7 +62,7 @@
           "value": "#871400"
         },
         "900": {
-          "value": "#610B00"
+          "value": "#6b3a27"
         }
       },
       "tertiary": {
@@ -82,7 +82,7 @@
           "value": "#C6B78D"
         },
         "500": {
-          "value": "#B7A673"
+          "value": "#FFEFDA"
         },
         "600": {
           "value": "#97865A"
@@ -105,28 +105,31 @@
           "value": "#F5F5F5"
         },
         "200": {
-          "value": "#E8E8E8"
+          "value": "#E5E5E5"
         },
         "300": {
-          "value": "#D9D9D9"
+          "value": "#CCCCCC"
         },
         "400": {
-          "value": "#BFBFBF"
+          "value": "#B3B3B3"
         },
         "500": {
-          "value": "#8C8C8C"
+          "value": "#999999"
         },
         "600": {
-          "value": "#595959"
+          "value": "#808080"
         },
         "700": {
-          "value": "#434343"
+          "value": "#666666"
         },
         "800": {
-          "value": "#262626"
+          "value": "#444444"
         },
         "900": {
-          "value": "#141414"
+          "value": "#333333"
+        },
+        "900-alpha40": {
+          "value": "rgba(51,51,51,0.40)"
         }
       },
       "base": {
@@ -139,21 +142,21 @@
       },
       "informative": {
         "50": {
-          "value": "#E6F7FF"
+          "value": "#E6FAF9"
         },
         "100": {
-          "value": "#BAE7FF"
+          "value": "#B0EFEC"
         },
         "500": {
           "value": "#1890FF"
         },
         "700": {
-          "value": "#0050B3"
+          "value": "#00918A"
         }
       },
       "success": {
         "50": {
-          "value": "#F6FFED"
+          "value": "#E8F8EF"
         },
         "100": {
           "value": "#D9F7BE"
@@ -162,38 +165,38 @@
           "value": "#52C41A"
         },
         "700": {
-          "value": "#237804"
+          "value": "#0e8343"
         }
       },
       "warning": {
         "50": {
-          "value": "#FFFBE6"
+          "value": "#FEFAE9"
         },
         "100": {
-          "value": "#FFF1B8"
+          "value": "#FBF1BB"
         },
         "300": {
-          "value": "#FFD666"
+          "value": "#F7E06D"
         },
         "700": {
-          "value": "#AD6800"
+          "value": "#ad941a"
         }
       },
       "error": {
         "50": {
-          "value": "#FFF1F0"
+          "value": "#FDEAEA"
         },
         "100": {
-          "value": "#FFCCC7"
+          "value": "#F8BFBF"
         },
         "300": {
-          "value": "#FF7875"
+          "value": "#F07474"
         },
         "500": {
           "value": "#F5222D"
         },
         "700": {
-          "value": "#A8071A"
+          "value": "#a52222"
         }
       }
     },
@@ -207,14 +210,14 @@
           "y": 1,
           "blur": 2,
           "spread": 0,
-          "color": "#00000008"
+          "color": "rgba(0,0,0,0.06)"
         },
         "shadow2": {
           "x": 0,
           "y": 1,
           "blur": 3,
           "spread": 0,
-          "color": "#0000001A"
+          "color": "rgba(0,0,0,0.10)"
         }
       },
       "md": {
@@ -222,15 +225,15 @@
           "x": 0,
           "y": 2,
           "blur": 4,
-          "spread": 0,
-          "color": "#00000008"
+          "spread": -1,
+          "color": "rgba(0,0,0,0.06)"
         },
         "shadow2": {
           "x": 0,
           "y": 4,
           "blur": 6,
-          "spread": 0,
-          "color": "#0000001A"
+          "spread": -1,
+          "color": "rgba(0,0,0,0.10)"
         }
       },
       "lg": {
@@ -238,94 +241,184 @@
           "x": 0,
           "y": 4,
           "blur": 6,
-          "spread": 0,
-          "color": "#00000008"
+          "spread": -2,
+          "color": "rgba(0,0,0,0.05)"
         },
         "shadow2": {
           "x": 0,
           "y": 10,
           "blur": 15,
-          "spread": 0,
-          "color": "#0000001A"
+          "spread": -3,
+          "color": "rgba(0,0,0,0.10)"
         }
       },
       "xl": {
         "shadow1": {
           "x": 0,
-          "y": 8,
+          "y": 10,
           "blur": 10,
-          "spread": 0,
-          "color": "#00000008"
+          "spread": -5,
+          "color": "rgba(0,0,0,0.04)"
         },
         "shadow2": {
           "x": 0,
           "y": 20,
           "blur": 25,
-          "spread": 0,
-          "color": "#0000001A"
+          "spread": -5,
+          "color": "rgba(0,0,0,0.10)"
         }
       }
     },
     "breakpoints": {
-      "mobile": {
-        "value": "0px - 767px"
+      "sm": {
+        "value": "640px",
+        "description": "Small devices - max width 640px"
       },
-      "tablet": {
-        "value": "768px - 1023px"
+      "md": {
+        "value": "768px",
+        "description": "Medium devices - max width 768px"
       },
-      "desktop": {
-        "value": "1024px - 1440px"
-      },
-      "largeDesktop": {
-        "value": "1441px+"
-      }
-    },
-    "grids": {
-      "desktop": {
-        "columns": 12,
-        "gutter": "24px",
-        "margin": "32px"
-      },
-      "tablet": {
-        "columns": 8,
-        "gutter": "16px",
-        "margin": "24px"
-      },
-      "mobile": {
-        "columns": 4,
-        "gutter": "8px",
-        "margin": "16px"
+      "lg": {
+        "value": "1024px",
+        "description": "Large devices - min width 1024px"
       }
     },
     "layouts": {
-      "desktop": {
-        "width": "1440px",
-        "columns": 12
+      "devices": {
+        "desktop": {
+          "width": {
+            "value": "1440px",
+            "description": "Standard desktop width"
+          },
+          "height": {
+            "value": "1024px",
+            "description": "Standard desktop height"
+          }
+        },
+        "tablet": {
+          "width": {
+            "value": "744px",
+            "description": "Standard tablet width (iPad mini)"
+          },
+          "height": {
+            "value": "1133px",
+            "description": "Standard tablet height (iPad mini)"
+          }
+        },
+        "mobile": {
+          "width": {
+            "value": "390px",
+            "description": "Standard mobile width"
+          },
+          "height": {
+            "value": "844px",
+            "description": "Standard mobile height"
+          }
+        }
       },
-      "tablet": {
-        "width": "768px",
-        "columns": 8
-      },
-      "mobile": {
-        "width": "375px",
-        "columns": 4
+      "sidebar": {
+        "width": {
+          "value": "240px",
+          "description": "Standard sidebar width"
+        }
       }
     },
-    "borderRadius": {
+    "grid": {
+      "desktop": {
+        "columns": {
+          "value": "12",
+          "description": "Number of columns for desktop grid"
+        },
+        "gutter": {
+          "value": "16px",
+          "description": "Space between columns in desktop grid"
+        },
+        "margin": {
+          "value": "88px",
+          "description": "Outer margin for desktop grid"
+        },
+        "type": {
+          "value": "fluid",
+          "description": "Fluid column width for desktop"
+        }
+      },
+      "tablet": {
+        "columns": {
+          "value": "8",
+          "description": "Number of columns for tablet grid"
+        },
+        "gutter": {
+          "value": "16px",
+          "description": "Space between columns in tablet grid"
+        },
+        "margin": {
+          "value": "24px",
+          "description": "Outer margin for tablet grid"
+        },
+        "type": {
+          "value": "stretch",
+          "description": "Stretch column width for tablet"
+        }
+      },
+      "mobile": {
+        "columns": {
+          "value": "4",
+          "description": "Number of columns for mobile grid"
+        },
+        "gutter": {
+          "value": "16px",
+          "description": "Space between columns in mobile grid"
+        },
+        "margin": {
+          "value": "16px",
+          "description": "Outer margin for mobile grid"
+        },
+        "type": {
+          "value": "stretch",
+          "description": "Stretch column width for mobile"
+        }
+      },
+      "desktop-with-sidebar": {
+        "content": {
+          "max-width": {
+            "value": "1200px",
+            "description": "Maximum content width in layout with sidebar"
+          }
+        },
+        "columns": {
+          "value": "8",
+          "description": "Number of columns for desktop with sidebar"
+        },
+        "gutter": {
+          "value": "16px",
+          "description": "Space between columns in desktop with sidebar"
+        },
+        "margin": {
+          "value": "24px",
+          "description": "Outer margin for desktop with sidebar"
+        }
+      }
+    },
+    "radius": {
       "none": {
-        "value": "0px"
+        "value": "0px",
+        "description": "No border radius"
       },
       "xs": {
-        "value": "4px"
+        "value": "4px",
+        "description": "Extra small border radius - for input boxes and inputs within component input groups"
       },
       "sm": {
-        "value": "8px"
+        "value": "8px",
+        "description": "Small border radius - for input fields, input groups, cards, and buttons"
       },
       "md": {
-        "value": "16px"
+        "value": "16px",
+        "description": "Medium border radius - for modals"
       },
       "full": {
-        "value": "9999px"
+        "value": "9999px",
+        "description": "Full circular border radius - for avatars and circular elements"
       }
     },
     "spacing": {
@@ -363,279 +456,1257 @@
         "value": "80px"
       }
     },
-    "typography": {
-      "fontFamily": {
-        "value": "Aeonik"
+    "space": {
+      "2": {
+        "value": "2px",
+        "description": "Extra small spacing (0.125rem)"
       },
-      "fontWeights": {
+      "4": {
+        "value": "4px",
+        "description": "Very small spacing (0.25rem)"
+      },
+      "8": {
+        "value": "8px",
+        "description": "Small spacing - base unit for 8-point grid system (0.5rem)"
+      },
+      "12": {
+        "value": "12px",
+        "description": "Medium-small spacing (0.75rem)"
+      },
+      "16": {
+        "value": "16px",
+        "description": "Medium spacing - 2x base unit (1rem)"
+      },
+      "24": {
+        "value": "24px",
+        "description": "Medium-large spacing - 3x base unit (1.5rem)"
+      },
+      "32": {
+        "value": "32px",
+        "description": "Large spacing - 4x base unit (2rem)"
+      },
+      "40": {
+        "value": "40px",
+        "description": "Very large spacing - 5x base unit (2.5rem)"
+      },
+      "48": {
+        "value": "48px",
+        "description": "Extra large spacing - 6x base unit (3rem)"
+      },
+      "64": {
+        "value": "64px",
+        "description": "2x extra large spacing - 8x base unit (4rem)"
+      },
+      "80": {
+        "value": "80px",
+        "description": "3x extra large spacing - 10x base unit (5rem)"
+      }
+    },
+    "font": {
+      "family": {
+        "primary": {
+          "value": "Aeonik",
+          "description": "Primary font family for the design system"
+        }
+      },
+      "weight": {
         "regular": {
-          "value": "400"
+          "value": "400",
+          "description": "Regular font weight (400)"
         },
         "medium": {
-          "value": "500"
+          "value": "500",
+          "description": "Medium font weight (500)"
         },
         "bold": {
-          "value": "700"
+          "value": "700",
+          "description": "Bold font weight (700)"
         }
       },
-      "fontSizes": {
-        "headline-xl": {
-          "value": "48px"
+      "size": {
+        "11": {
+          "value": "11px",
+          "description": "Extra small font size for labels"
         },
-        "headline-lg": {
-          "value": "40px"
+        "12": {
+          "value": "12px",
+          "description": "Small font size for labels"
         },
-        "headline-md": {
-          "value": "32px"
+        "14": {
+          "value": "14px",
+          "description": "Small body text"
         },
-        "headline-sm": {
-          "value": "24px"
+        "16": {
+          "value": "16px",
+          "description": "Medium body text (base size)"
         },
-        "title-lg": {
-          "value": "20px"
+        "18": {
+          "value": "18px",
+          "description": "Large body text and small titles"
         },
-        "title-md": {
-          "value": "18px"
+        "20": {
+          "value": "20px",
+          "description": "Extra large body text and medium titles"
         },
-        "title-sm": {
-          "value": "16px"
+        "22": {
+          "value": "22px",
+          "description": "Large titles"
         },
-        "body-lg": {
-          "value": "16px"
+        "36": {
+          "value": "36px",
+          "description": "H2 headline"
         },
-        "body-md": {
-          "value": "14px"
-        },
-        "body-sm": {
-          "value": "12px"
-        },
-        "label-lg": {
-          "value": "14px"
-        },
-        "label-md": {
-          "value": "12px"
-        },
-        "label-sm": {
-          "value": "10px"
+        "56": {
+          "value": "56px",
+          "description": "H1 headline"
         }
       },
-      "lineHeights": {
-        "headline": {
-          "value": "120%"
+      "line-height": {
+        "16": {
+          "value": "16px",
+          "description": "Tight line height for labels"
         },
-        "title": {
-          "value": "130%"
+        "20": {
+          "value": "20px",
+          "description": "Line height for small body text"
         },
-        "body": {
-          "value": "140%"
+        "24": {
+          "value": "24px",
+          "description": "Standard line height for body text"
         },
-        "label": {
-          "value": "150%"
+        "28": {
+          "value": "28px",
+          "description": "Line height for medium titles"
+        },
+        "32": {
+          "value": "32px",
+          "description": "Line height for large titles"
+        },
+        "48": {
+          "value": "48px",
+          "description": "Line height for H2"
+        },
+        "73": {
+          "value": "73px",
+          "description": "Line height for H1"
+        }
+      }
+    },
+    "typography": {
+      "headline": {
+        "h1": {
+          "value": {
+            "fontFamily": "{font.family.primary}",
+            "fontWeight": "{font.weight.regular}",
+            "fontSize": "{font.size.56}",
+            "lineHeight": "{font.line-height.73}"
+          },
+          "description": "Primary headline style for major sections and entry points"
+        },
+        "h2": {
+          "value": {
+            "fontFamily": "{font.family.primary}",
+            "fontWeight": "{font.weight.medium}",
+            "fontSize": "{font.size.36}",
+            "lineHeight": "{font.line-height.48}"
+          },
+          "description": "Secondary headline style for section headers"
+        }
+      },
+      "title": {
+        "lg": {
+          "value": {
+            "fontFamily": "{font.family.primary}",
+            "fontWeight": "{font.weight.medium}",
+            "fontSize": "{font.size.22}",
+            "lineHeight": "{font.line-height.32}"
+          },
+          "description": "Large title for component headers and important text"
+        },
+        "md": {
+          "value": {
+            "fontFamily": "{font.family.primary}",
+            "fontWeight": "{font.weight.medium}",
+            "fontSize": "{font.size.20}",
+            "lineHeight": "{font.line-height.28}"
+          },
+          "description": "Medium title for component sub-headers"
+        },
+        "sm": {
+          "value": {
+            "fontFamily": "{font.family.primary}",
+            "fontWeight": "{font.weight.medium}",
+            "fontSize": "{font.size.18}",
+            "lineHeight": "{font.line-height.24}"
+          },
+          "description": "Small title for minor section headers"
+        }
+      },
+      "body": {
+        "xl": {
+          "value": {
+            "fontFamily": "{font.family.primary}",
+            "fontWeight": "{font.weight.regular}",
+            "fontSize": "{font.size.20}",
+            "lineHeight": "{font.line-height.24}"
+          },
+          "description": "Extra large body text for emphasized content"
+        },
+        "lg": {
+          "value": {
+            "fontFamily": "{font.family.primary}",
+            "fontWeight": "{font.weight.regular}",
+            "fontSize": "{font.size.18}",
+            "lineHeight": "{font.line-height.24}"
+          },
+          "description": "Large body text for emphasized content"
+        },
+        "md": {
+          "regular": {
+            "value": {
+              "fontFamily": "{font.family.primary}",
+              "fontWeight": "{font.weight.regular}",
+              "fontSize": "{font.size.16}",
+              "lineHeight": "{font.line-height.24}"
+            },
+            "description": "Standard regular body text for main content"
+          },
+          "medium": {
+            "value": {
+              "fontFamily": "{font.family.primary}",
+              "fontWeight": "{font.weight.medium}",
+              "fontSize": "{font.size.16}",
+              "lineHeight": "{font.line-height.24}"
+            },
+            "description": "Standard medium body text for emphasized content"
+          }
+        },
+        "sm": {
+          "regular": {
+            "value": {
+              "fontFamily": "{font.family.primary}",
+              "fontWeight": "{font.weight.regular}",
+              "fontSize": "{font.size.14}",
+              "lineHeight": "{font.line-height.20}"
+            },
+            "description": "Small regular body text for secondary content"
+          },
+          "medium": {
+            "value": {
+              "fontFamily": "{font.family.primary}",
+              "fontWeight": "{font.weight.medium}",
+              "fontSize": "{font.size.14}",
+              "lineHeight": "{font.line-height.20}"
+            },
+            "description": "Small medium body text for emphasized secondary content"
+          }
+        }
+      },
+      "label": {
+        "md": {
+          "regular": {
+            "value": {
+              "fontFamily": "{font.family.primary}",
+              "fontWeight": "{font.weight.regular}",
+              "fontSize": "{font.size.12}",
+              "lineHeight": "{font.line-height.16}"
+            },
+            "description": "Medium regular label for form fields and metadata"
+          },
+          "medium": {
+            "value": {
+              "fontFamily": "{font.family.primary}",
+              "fontWeight": "{font.weight.medium}",
+              "fontSize": "{font.size.12}",
+              "lineHeight": "{font.line-height.16}"
+            },
+            "description": "Medium emphasized label for form fields and metadata"
+          }
+        },
+        "sm": {
+          "value": {
+            "fontFamily": "{font.family.primary}",
+            "fontWeight": "{font.weight.medium}",
+            "fontSize": "{font.size.11}",
+            "lineHeight": "{font.line-height.16}"
+          },
+          "description": "Small label for minimal text elements and tight spaces"
+        }
+      }
+    },
+    "icons": {
+      "sizes": {
+        "16": {
+          "value": "16px",
+          "description": "Small icon size for minor UI components, badges, etc."
+        },
+        "24": {
+          "value": "24px",
+          "description": "Default icon size for most UI components"
+        },
+        "32": {
+          "value": "32px",
+          "description": "Medium icon size for featured UI elements"
+        },
+        "48": {
+          "value": "48px",
+          "description": "Large icon size for hero sections, empty states, etc."
+        }
+      },
+      "stroke": {
+        "weight": {
+          "value": "2px",
+          "description": "Standard stroke weight for outlined icons"
+        }
+      },
+      "styles": {
+        "outlined": {
+          "value": "outlined",
+          "description": "Outlined style icons with 2px stroke weight"
+        },
+        "filled": {
+          "value": "filled",
+          "description": "Filled style icons"
+        }
+      },
+      "source": {
+        "web": {
+          "value": "Carbon",
+          "description": "IBM Carbon icons for web applications"
+        },
+        "figma": {
+          "value": "IBM Carbon Icons",
+          "description": "IBM Carbon Icons library in Figma"
+        }
+      },
+      "naming": {
+        "pattern": {
+          "value": "icon-[library icon name]",
+          "description": "Naming convention for icons"
+        }
+      }
+    },
+    "logo": {
+      "types": {
+        "full": {
+          "value": "qida",
+          "description": "Full Qida logo with text"
+        },
+        "symbol": {
+          "value": "q",
+          "description": "Q symbol logo only"
+        },
+        "footer": {
+          "value": "footer",
+          "description": "Special logo version for footer"
+        }
+      },
+      "sizes": {
+        "sm": {
+          "height": {
+            "value": "24px",
+            "description": "Small logo height"
+          },
+          "width": {
+            "full": {
+              "value": "40px",
+              "description": "Small full logo width"
+            },
+            "symbol": {
+              "value": "24px",
+              "description": "Small symbol logo width"
+            }
+          }
+        },
+        "md": {
+          "height": {
+            "value": "40px",
+            "description": "Medium logo height"
+          },
+          "width": {
+            "full": {
+              "value": "80px",
+              "description": "Medium full logo width"
+            },
+            "symbol": {
+              "value": "40px",
+              "description": "Medium symbol logo width"
+            }
+          }
+        },
+        "lg": {
+          "height": {
+            "value": "64px",
+            "description": "Large logo height"
+          },
+          "width": {
+            "full": {
+              "value": "160px",
+              "description": "Large full logo width"
+            },
+            "symbol": {
+              "value": "80px",
+              "description": "Large symbol logo width"
+            },
+            "footer": {
+              "value": "384px",
+              "description": "Footer logo width"
+            }
+          }
+        }
+      },
+      "colors": {
+        "white": {
+          "value": "{color.base.white.value}",
+          "description": "White logo for dark backgrounds"
+        },
+        "black": {
+          "value": "{color.base.black.value}",
+          "description": "Black logo for light backgrounds"
+        },
+        "primary": {
+          "value": "{color.primary.900.value}",
+          "description": "Primary color logo (emerald)"
+        }
+      },
+      "padding": {
+        "symbol": {
+          "sm": {
+            "value": "3px",
+            "description": "Small symbol logo padding"
+          },
+          "md": {
+            "value": "5px",
+            "description": "Medium symbol logo padding"
+          },
+          "lg": {
+            "value": "10px",
+            "description": "Large symbol logo padding"
+          }
+        }
+      },
+      "aspect-ratio": {
+        "full": {
+          "value": "2.5/1",
+          "description": "Aspect ratio for full logo"
+        },
+        "symbol": {
+          "value": "0.9/1",
+          "description": "Aspect ratio for symbol logo"
+        },
+        "footer": {
+          "value": "6/1",
+          "description": "Aspect ratio for footer logo"
         }
       }
     }
   },
   "components": {
     "button": {
-      "variants": {
+      "base": {
+        "borderRadius": {
+          "value": "{radius.lg}",
+          "description": "Standard border radius for all buttons"
+        },
+        "minWidth": {
+          "value": "96px",
+          "description": "Minimum width for buttons (except icon buttons)"
+        },
+        "gap": {
+          "value": "{space.8}",
+          "description": "Gap between icon and text"
+        },
+        "fontFamily": {
+          "value": "Aeonik",
+          "description": "Font family used for button text"
+        },
+        "fontWeight": {
+          "value": "{typography.weight.medium}",
+          "description": "Font weight for button text"
+        },
+        "textCase": {
+          "value": "lowercase",
+          "description": "Default text case (use uppercase for VidaCaixa for accessibility)"
+        },
+        "padding": {
+          "horizontal": {
+            "value": "{space.16}",
+            "description": "Horizontal padding for buttons"
+          }
+        },
+        "textAlign": {
+          "value": "center",
+          "description": "Text alignment within buttons"
+        },
+        "verticalGroupSpacing": {
+          "value": "{space.16}",
+          "description": "Vertical spacing between stacked buttons (16px)"
+        },
+        "horizontalGroupSpacing": {
+          "value": "{space.16}",
+          "description": "Horizontal spacing between side-by-side buttons (16px)"
+        }
+      },
+      "size": {
+        "sm": {
+          "height": {
+            "value": "24px",
+            "description": "Height for small buttons"
+          },
+          "padding": {
+            "vertical": {
+              "value": "{space.8}",
+              "description": "Vertical padding for small buttons"
+            }
+          },
+          "fontSize": {
+            "value": "{typography.size.xs}",
+            "description": "Font size for small buttons"
+          },
+          "lineHeight": {
+            "value": "1",
+            "description": "Line height for small buttons"
+          },
+          "iconSize": {
+            "value": "16px",
+            "description": "Icon size for small buttons"
+          }
+        },
+        "md": {
+          "height": {
+            "value": "40px",
+            "description": "Height for medium buttons"
+          },
+          "padding": {
+            "vertical": {
+              "value": "{space.8}",
+              "description": "Vertical padding for medium buttons"
+            }
+          },
+          "fontSize": {
+            "value": "{typography.size.sm}",
+            "description": "Font size for medium buttons"
+          },
+          "lineHeight": {
+            "value": "1.25",
+            "description": "Line height for medium buttons"
+          },
+          "iconSize": {
+            "value": "24px",
+            "description": "Icon size for medium buttons"
+          }
+        },
+        "lg": {
+          "height": {
+            "value": "48px",
+            "description": "Height for large buttons"
+          },
+          "padding": {
+            "vertical": {
+              "value": "{space.8}",
+              "description": "Vertical padding for large buttons"
+            }
+          },
+          "fontSize": {
+            "value": "{typography.size.sm}",
+            "description": "Font size for large buttons"
+          },
+          "lineHeight": {
+            "value": "1.25",
+            "description": "Line height for large buttons"
+          },
+          "iconSize": {
+            "value": "24px",
+            "description": "Icon size for large buttons"
+          }
+        }
+      },
+      "variant": {
         "primary": {
           "background": {
-            "value": "{global.colors.primary.500}"
+            "enabled": {
+              "value": "{color.primary.900}",
+              "description": "Background color for enabled primary buttons"
+            },
+            "hovered": {
+              "value": "{color.slate.600}",
+              "description": "Background color for hovered primary buttons"
+            },
+            "pressed": {
+              "value": "{color.teal.950}",
+              "description": "Background color for pressed primary buttons"
+            },
+            "disabled": {
+              "value": "{color.gray.400}",
+              "description": "Background color for disabled primary buttons"
+            }
           },
           "text": {
-            "value": "{global.colors.base.white}"
+            "enabled": {
+              "value": "{color.white}",
+              "description": "Text color for enabled primary buttons"
+            },
+            "hovered": {
+              "value": "{color.white}",
+              "description": "Text color for hovered primary buttons"
+            },
+            "pressed": {
+              "value": "{color.white}",
+              "description": "Text color for pressed primary buttons"
+            },
+            "disabled": {
+              "value": "{color.white}",
+              "description": "Text color for disabled primary buttons"
+            }
+          },
+          "icon": {
+            "enabled": {
+              "value": "{color.white}",
+              "description": "Icon color for enabled primary buttons"
+            },
+            "hovered": {
+              "value": "{color.white}",
+              "description": "Icon color for hovered primary buttons"
+            },
+            "pressed": {
+              "value": "{color.white}",
+              "description": "Icon color for pressed primary buttons"
+            },
+            "disabled": {
+              "value": "{color.white}",
+              "description": "Icon color for disabled primary buttons"
+            }
           },
           "border": {
-            "value": "{global.colors.primary.500}"
+            "enabled": {
+              "value": "none",
+              "description": "No border for primary buttons"
+            }
           },
-          "hoverBackground": {
-            "value": "{global.colors.primary.400}"
-          },
-          "hoverText": {
-            "value": "{global.colors.base.white}"
-          },
-          "hoverBorder": {
-            "value": "{global.colors.primary.400}"
-          },
-          "activeBackground": {
-            "value": "{global.colors.primary.600}"
-          },
-          "activeText": {
-            "value": "{global.colors.base.white}"
-          },
-          "activeBorder": {
-            "value": "{global.colors.primary.600}"
+          "focused": {
+            "outline": {
+              "width": {
+                "value": "4px",
+                "description": "Width of focus outline"
+              },
+              "offset": {
+                "value": "-2px",
+                "description": "Offset of focus outline"
+              },
+              "color": {
+                "value": "{color.gray.400}",
+                "description": "Color of focus outline"
+              }
+            }
           }
         },
         "secondary": {
           "background": {
-            "value": "{global.colors.secondary.500}"
+            "enabled": {
+              "value": "transparent",
+              "description": "Background color for enabled secondary buttons"
+            },
+            "hovered": {
+              "value": "{color.gray.200}",
+              "description": "Background color for hovered secondary buttons"
+            },
+            "pressed": {
+              "value": "{color.gray.400}",
+              "description": "Background color for pressed secondary buttons"
+            },
+            "disabled": {
+              "value": "transparent",
+              "description": "Background color for disabled secondary buttons"
+            }
           },
           "text": {
-            "value": "{global.colors.base.white}"
+            "enabled": {
+              "value": "{color.primary.900}",
+              "description": "Text color for enabled secondary buttons"
+            },
+            "hovered": {
+              "value": "{color.primary.900}",
+              "description": "Text color for hovered secondary buttons"
+            },
+            "pressed": {
+              "value": "{color.primary.900}",
+              "description": "Text color for pressed secondary buttons"
+            },
+            "disabled": {
+              "value": "{color.slate.600}",
+              "description": "Text color for disabled secondary buttons"
+            }
+          },
+          "icon": {
+            "enabled": {
+              "value": "{color.primary.900}",
+              "description": "Icon color for enabled secondary buttons"
+            },
+            "hovered": {
+              "value": "{color.primary.900}",
+              "description": "Icon color for hovered secondary buttons"
+            },
+            "pressed": {
+              "value": "{color.primary.900}",
+              "description": "Icon color for pressed secondary buttons"
+            },
+            "disabled": {
+              "value": "{color.slate.600}",
+              "description": "Icon color for disabled secondary buttons"
+            }
           },
           "border": {
-            "value": "{global.colors.secondary.500}"
+            "enabled": {
+              "width": {
+                "value": "1px",
+                "description": "Border width for secondary buttons"
+              },
+              "color": {
+                "value": "{color.primary.900}",
+                "description": "Border color for enabled secondary buttons"
+              }
+            },
+            "disabled": {
+              "color": {
+                "value": "{color.gray.400}",
+                "description": "Border color for disabled secondary buttons"
+              }
+            }
           },
-          "hoverBackground": {
-            "value": "{global.colors.secondary.400}"
-          },
-          "hoverText": {
-            "value": "{global.colors.base.white}"
-          },
-          "hoverBorder": {
-            "value": "{global.colors.secondary.400}"
-          },
-          "activeBackground": {
-            "value": "{global.colors.secondary.600}"
-          },
-          "activeText": {
-            "value": "{global.colors.base.white}"
-          },
-          "activeBorder": {
-            "value": "{global.colors.secondary.600}"
+          "focused": {
+            "outline": {
+              "width": {
+                "value": "4px",
+                "description": "Width of focus outline"
+              },
+              "offset": {
+                "value": "-4px",
+                "description": "Offset of focus outline"
+              },
+              "color": {
+                "value": "{color.gray.400}",
+                "description": "Color of focus outline"
+              }
+            }
           }
         },
         "tertiary": {
           "background": {
-            "value": "{global.colors.neutral.200}"
+            "enabled": {
+              "value": "transparent",
+              "description": "Background color for enabled tertiary buttons"
+            },
+            "hovered": {
+              "value": "{color.gray.200}",
+              "description": "Background color for hovered tertiary buttons"
+            },
+            "pressed": {
+              "value": "{color.gray.400}",
+              "description": "Background color for pressed tertiary buttons"
+            },
+            "disabled": {
+              "value": "transparent",
+              "description": "Background color for disabled tertiary buttons"
+            }
           },
           "text": {
-            "value": "{global.colors.neutral.800}"
+            "enabled": {
+              "value": "{color.primary.900}",
+              "description": "Text color for enabled tertiary buttons"
+            },
+            "hovered": {
+              "value": "{color.primary.900}",
+              "description": "Text color for hovered tertiary buttons"
+            },
+            "pressed": {
+              "value": "{color.primary.900}",
+              "description": "Text color for pressed tertiary buttons"
+            },
+            "disabled": {
+              "value": "{color.slate.600}",
+              "description": "Text color for disabled tertiary buttons"
+            }
+          },
+          "icon": {
+            "enabled": {
+              "value": "{color.primary.900}",
+              "description": "Icon color for enabled tertiary buttons"
+            },
+            "hovered": {
+              "value": "{color.primary.900}",
+              "description": "Icon color for hovered tertiary buttons"
+            },
+            "pressed": {
+              "value": "{color.primary.900}",
+              "description": "Icon color for pressed tertiary buttons"
+            },
+            "disabled": {
+              "value": "{color.slate.600}",
+              "description": "Icon color for disabled tertiary buttons"
+            }
           },
           "border": {
-            "value": "{global.colors.neutral.400}"
+            "enabled": {
+              "value": "none",
+              "description": "No border for tertiary buttons"
+            }
           },
-          "hoverBackground": {
-            "value": "{global.colors.neutral.300}"
-          },
-          "hoverText": {
-            "value": "{global.colors.neutral.900}"
-          },
-          "hoverBorder": {
-            "value": "{global.colors.neutral.500}"
-          },
-          "activeBackground": {
-            "value": "{global.colors.neutral.400}"
-          },
-          "activeText": {
-            "value": "{global.colors.neutral.900}"
-          },
-          "activeBorder": {
-            "value": "{global.colors.neutral.600}"
+          "focused": {
+            "outline": {
+              "width": {
+                "value": "4px",
+                "description": "Width of focus outline"
+              },
+              "offset": {
+                "value": "-2px",
+                "description": "Offset of focus outline"
+              },
+              "color": {
+                "value": "{color.gray.400}",
+                "description": "Color of focus outline"
+              }
+            }
           }
         }
       },
-      "sizes": {
-        "small": {
-          "padding": {
-            "value": "{global.spacing.8} {global.spacing.12}"
+      "icon": {
+        "position": {
+          "left": {
+            "paddingLeft": {
+              "value": "{space.16}",
+              "description": "Left padding when icon is on the left"
+            },
+            "paddingRight": {
+              "value": "{space.24}",
+              "description": "Right padding when icon is on the left"
+            }
           },
-          "fontSize": {
-            "value": "{global.typography.fontSizes.label-sm}"
-          },
-          "borderRadius": {
-            "value": "{global.borderRadius.sm}"
-          }
-        },
-        "medium": {
-          "padding": {
-            "value": "{global.spacing.12} {global.spacing.16}"
-          },
-          "fontSize": {
-            "value": "{global.typography.fontSizes.label-md}"
-          },
-          "borderRadius": {
-            "value": "{global.borderRadius.sm}"
-          }
-        },
-        "large": {
-          "padding": {
-            "value": "{global.spacing.16} {global.spacing.24}"
-          },
-          "fontSize": {
-            "value": "{global.typography.fontSizes.label-lg}"
-          },
-          "borderRadius": {
-            "value": "{global.borderRadius.md}"
+          "right": {
+            "paddingLeft": {
+              "value": "{space.24}",
+              "description": "Left padding when icon is on the right"
+            },
+            "paddingRight": {
+              "value": "{space.16}",
+              "description": "Right padding when icon is on the right"
+            }
           }
         }
       },
-      "iconButton": {
-        "padding": {
-          "value": "{global.spacing.12}"
-        },
-        "size": {
-          "small": {
-            "value": "32px"
+      "loading": {
+        "iconPadding": {
+          "sm": {
+            "value": "2px",
+            "description": "Padding for loading icon in small buttons"
           },
-          "medium": {
-            "value": "40px"
+          "md": {
+            "value": "3px",
+            "description": "Padding for loading icon in medium buttons"
           },
-          "large": {
-            "value": "48px"
+          "lg": {
+            "value": "3px",
+            "description": "Padding for loading icon in large buttons"
           }
         }
-      },
-      "fabButton": {
-        "size": {
-          "small": {
-            "value": "40px"
-          },
-          "medium": {
-            "value": "56px"
-          },
-          "large": {
-            "value": "72px"
-          }
-        },
+      }
+    },
+    "button-icon": {
+      "base": {
         "borderRadius": {
-          "value": "{global.borderRadius.full}"
+          "value": "{radius.lg}",
+          "description": "Border radius for icon buttons"
+        },
+        "sizes": {
+          "md": {
+            "width": {
+              "value": "40px",
+              "description": "Width for medium icon buttons"
+            },
+            "height": {
+              "value": "40px",
+              "description": "Height for medium icon buttons"
+            },
+            "iconSize": {
+              "value": "24px",
+              "description": "Icon size for medium icon buttons"
+            },
+            "padding": {
+              "value": "{space.6}",
+              "description": "Padding for medium icon buttons"
+            }
+          },
+          "lg": {
+            "width": {
+              "value": "48px",
+              "description": "Width for large icon buttons"
+            },
+            "height": {
+              "value": "48px",
+              "description": "Height for large icon buttons"
+            },
+            "iconSize": {
+              "value": "24px",
+              "description": "Icon size for large icon buttons"
+            },
+            "padding": {
+              "value": "{space.6}",
+              "description": "Padding for large icon buttons"
+            }
+          }
+        }
+      },
+      "variant": {
+        "primary": {
+          "background": {
+            "enabled": {
+              "value": "{color.primary.900}",
+              "description": "Background color for enabled primary icon buttons"
+            },
+            "hovered": {
+              "value": "{color.slate.600}",
+              "description": "Background color for hovered primary icon buttons"
+            },
+            "pressed": {
+              "value": "{color.teal.950}",
+              "description": "Background color for pressed primary icon buttons"
+            },
+            "disabled": {
+              "value": "{color.gray.400}",
+              "description": "Background color for disabled primary icon buttons"
+            }
+          },
+          "icon": {
+            "enabled": {
+              "value": "{color.white}",
+              "description": "Icon color for enabled primary icon buttons"
+            },
+            "hovered": {
+              "value": "{color.white}",
+              "description": "Icon color for hovered primary icon buttons"
+            },
+            "pressed": {
+              "value": "{color.white}",
+              "description": "Icon color for pressed primary icon buttons"
+            },
+            "disabled": {
+              "value": "{color.white}",
+              "description": "Icon color for disabled primary icon buttons"
+            }
+          }
+        },
+        "secondary": {
+          "background": {
+            "enabled": {
+              "value": "transparent",
+              "description": "Background color for enabled secondary icon buttons"
+            },
+            "hovered": {
+              "value": "{color.gray.200}",
+              "description": "Background color for hovered secondary icon buttons"
+            },
+            "pressed": {
+              "value": "{color.gray.400}",
+              "description": "Background color for pressed secondary icon buttons"
+            },
+            "disabled": {
+              "value": "transparent",
+              "description": "Background color for disabled secondary icon buttons"
+            }
+          },
+          "icon": {
+            "enabled": {
+              "value": "{color.primary.900}",
+              "description": "Icon color for enabled secondary icon buttons"
+            },
+            "hovered": {
+              "value": "{color.primary.900}",
+              "description": "Icon color for hovered secondary icon buttons"
+            },
+            "pressed": {
+              "value": "{color.primary.900}",
+              "description": "Icon color for pressed secondary icon buttons"
+            },
+            "disabled": {
+              "value": "{color.slate.600}",
+              "description": "Icon color for disabled secondary icon buttons"
+            }
+          },
+          "border": {
+            "enabled": {
+              "width": {
+                "value": "1px",
+                "description": "Border width for secondary icon buttons"
+              },
+              "color": {
+                "value": "{color.primary.900}",
+                "description": "Border color for enabled secondary icon buttons"
+              }
+            },
+            "disabled": {
+              "color": {
+                "value": "{color.gray.400}",
+                "description": "Border color for disabled secondary icon buttons"
+              }
+            }
+          }
+        },
+        "tertiary": {
+          "background": {
+            "enabled": {
+              "value": "transparent",
+              "description": "Background color for enabled tertiary icon buttons"
+            },
+            "hovered": {
+              "value": "{color.gray.200}",
+              "description": "Background color for hovered tertiary icon buttons"
+            },
+            "pressed": {
+              "value": "{color.gray.400}",
+              "description": "Background color for pressed tertiary icon buttons"
+            },
+            "disabled": {
+              "value": "transparent",
+              "description": "Background color for disabled tertiary icon buttons"
+            }
+          },
+          "icon": {
+            "enabled": {
+              "value": "{color.zinc.800}",
+              "description": "Icon color for enabled tertiary icon buttons"
+            },
+            "hovered": {
+              "value": "{color.zinc.800}",
+              "description": "Icon color for hovered tertiary icon buttons"
+            },
+            "pressed": {
+              "value": "{color.zinc.800}",
+              "description": "Icon color for pressed tertiary icon buttons"
+            },
+            "disabled": {
+              "value": "{color.stone.500}",
+              "description": "Icon color for disabled tertiary icon buttons"
+            }
+          }
+        },
+        "tonal": {
+          "background": {
+            "enabled": {
+              "value": "{color.neutral.100}",
+              "description": "Background color for enabled tonal icon buttons"
+            },
+            "hovered": {
+              "value": "{color.neutral.200}",
+              "description": "Background color for hovered tonal icon buttons"
+            },
+            "pressed": {
+              "value": "{color.stone.300}",
+              "description": "Background color for pressed tonal icon buttons"
+            },
+            "disabled": {
+              "value": "{color.neutral.100}",
+              "description": "Background color for disabled tonal icon buttons"
+            }
+          },
+          "icon": {
+            "enabled": {
+              "value": "{color.zinc.800}",
+              "description": "Icon color for enabled tonal icon buttons"
+            },
+            "hovered": {
+              "value": "{color.zinc.800}",
+              "description": "Icon color for hovered tonal icon buttons"
+            },
+            "pressed": {
+              "value": "{color.zinc.800}",
+              "description": "Icon color for pressed tonal icon buttons"
+            },
+            "disabled": {
+              "value": "{color.stone.500}",
+              "description": "Icon color for disabled tonal icon buttons"
+            }
+          }
+        }
+      }
+    },
+    "button-fab": {
+      "base": {
+        "background": {
+          "enabled": {
+            "value": "{color.primary.900}",
+            "description": "Background color for enabled FAB"
+          },
+          "hovered": {
+            "value": "{color.slate.600}",
+            "description": "Background color for hovered FAB"
+          },
+          "pressed": {
+            "value": "{color.teal.950}",
+            "description": "Background color for pressed FAB"
+          },
+          "disabled": {
+            "value": "{color.gray.400}",
+            "description": "Background color for disabled FAB"
+          }
+        },
+        "icon": {
+          "color": {
+            "value": "{color.white}",
+            "description": "Icon color for FAB"
+          },
+          "size": {
+            "value": "24px",
+            "description": "Icon size for all FAB sizes"
+          }
+        },
+        "shadow": {
+          "value": "{elevation.lg}",
+          "description": "Shadow for FAB"
+        },
+        "sizes": {
+          "sm": {
+            "width": {
+              "value": "40px",
+              "description": "Width for small FAB"
+            },
+            "height": {
+              "value": "40px",
+              "description": "Height for small FAB"
+            },
+            "borderRadius": {
+              "value": "{radius.lg}",
+              "description": "Border radius for small FAB"
+            },
+            "padding": {
+              "value": "{space.10}",
+              "description": "Padding for small FAB"
+            }
+          },
+          "md": {
+            "width": {
+              "value": "56px",
+              "description": "Width for medium FAB"
+            },
+            "height": {
+              "value": "56px",
+              "description": "Height for medium FAB"
+            },
+            "borderRadius": {
+              "value": "{radius.2xl}",
+              "description": "Border radius for medium FAB"
+            },
+            "padding": {
+              "value": "{space.10}",
+              "description": "Padding for medium FAB"
+            }
+          }
+        },
+        "position": {
+          "value": "bottom-right",
+          "description": "Default position for FAB (bottom right corner)"
         }
       }
     },
     "accordion": {
-      "background": {
-        "value": "{global.colors.neutral.50}"
-      },
-      "border": {
-        "value": "{global.colors.neutral.300}"
-      },
-      "text": {
-        "value": "{global.colors.neutral.900}"
-      },
-      "header": {
+      "base": {
         "padding": {
-          "value": "{global.spacing.16}"
+          "value": "{space.16}",
+          "description": "Default padding for accordion items"
         },
-        "fontSize": {
-          "value": "{global.typography.fontSizes.body-lg}"
+        "borderRadius": {
+          "value": "{radius.sm}",
+          "description": "Border radius for accordion container"
         },
-        "fontWeight": {
-          "value": "{global.typography.fontWeights.medium}"
+        "gap": {
+          "value": "{space.8}",
+          "description": "Gap between accordion items"
+        },
+        "label": {
+          "typography": {
+            "value": "{typography.title.sm}",
+            "description": "Typography style for accordion labels"
+          },
+          "color": {
+            "value": "{color.neutral.800}",
+            "description": "Text color for accordion labels"
+          }
+        },
+        "icon": {
+          "size": {
+            "value": "24px",
+            "description": "Size of the accordion icon/indicator"
+          },
+          "color": {
+            "value": "{color.neutral.800}",
+            "description": "Color of the accordion icon/indicator"
+          }
         }
       },
-      "content": {
-        "padding": {
-          "value": "{global.spacing.16}"
-        },
-        "fontSize": {
-          "value": "{global.typography.fontSizes.body-md}"
-        },
-        "lineHeight": {
-          "value": "{global.typography.lineHeights.body}"
-        }
-      },
-      "states": {
+      "state": {
         "closed": {
-          "iconRotation": {
-            "value": "0deg"
+          "indicator": {
+            "rotation": {
+              "value": "0deg",
+              "description": "Rotation of the indicator when accordion is closed"
+            }
+          },
+          "content": {
+            "display": {
+              "value": "none",
+              "description": "Display property for the accordion content when closed"
+            }
           }
         },
         "opened": {
-          "iconRotation": {
-            "value": "180deg"
+          "indicator": {
+            "rotation": {
+              "value": "180deg",
+              "description": "Rotation of the indicator when accordion is opened"
+            }
+          },
+          "content": {
+            "display": {
+              "value": "block",
+              "description": "Display property for the accordion content when opened"
+            },
+            "padding": {
+              "value": "{space.16} {space.16} {space.16} {space.16}",
+              "description": "Padding for the content area when opened"
+            }
           }
+        }
+      },
+      "responsive": {
+        "desktop": {
+          "width": {
+            "value": "100%",
+            "description": "Width of accordion on desktop"
+          },
+          "maxWidth": {
+            "value": "824px",
+            "description": "Maximum width of accordion on desktop"
+          }
+        },
+        "mobile": {
+          "width": {
+            "value": "100%",
+            "description": "Width of accordion on mobile"
+          },
+          "maxWidth": {
+            "value": "100%",
+            "description": "Maximum width of accordion on mobile"
+          }
+        }
+      },
+      "accessibility": {
+        "focusRing": {
+          "value": "2px solid {color.primary.500}",
+          "description": "Focus outline for keyboard navigation"
+        },
+        "keyboardSupport": {
+          "description": "Supports keyboard navigation with Enter/Space to toggle"
+        },
+        "ariaAttributes": {
+          "description": "Uses aria-expanded, aria-controls, and role attributes"
         }
       }
     },
@@ -663,49 +1734,1127 @@
         }
       },
       "borderRadius": {
-        "value": "{global.borderRadius.full}"
+        "value": "{global.radius.full}"
       }
     },
-    "alert_toast": {
-      "types": {
+    "alert-toast": {
+      "base": {
+        "padding": {
+          "value": "{space.16}",
+          "description": "Default padding for toast alerts"
+        },
+        "borderRadius": {
+          "value": "{radius.sm}",
+          "description": "Border radius for toast container"
+        },
+        "gap": {
+          "value": "{space.8}",
+          "description": "Gap between toast elements"
+        },
+        "text": {
+          "color": {
+            "value": "{color.neutral.800}",
+            "description": "Text color for toast content"
+          },
+          "typography": {
+            "value": "{typography.body.md.regular}",
+            "description": "Typography style for toast content"
+          }
+        },
+        "icon": {
+          "size": {
+            "value": "24px",
+            "description": "Size of the toast type icon"
+          },
+          "padding": {
+            "value": "1px",
+            "description": "Padding for the toast icon container"
+          }
+        },
+        "shadow": {
+          "value": [
+            {
+              "x": "0",
+              "y": "10px",
+              "blur": "10px",
+              "spread": "-5px",
+              "color": "rgba(0,0,0,0.04)"
+            }
+          ],
+          "description": "Shadow applied to toast container for elevation effect"
+        },
+        "position": {
+          "value": "bottom-right",
+          "description": "Default position for toast alerts (bottom right corner)"
+        },
+        "maxWidth": {
+          "value": "320px",
+          "description": "Maximum width for toast alerts"
+        },
+        "zIndex": {
+          "value": "1000",
+          "description": "Z-index to ensure toast appears above other content"
+        },
+        "duration": {
+          "value": "5000ms",
+          "description": "Default duration before toast disappears"
+        },
+        "animation": {
+          "entry": {
+            "value": "slide-in-right 0.3s ease-out",
+            "description": "Entry animation for toast"
+          },
+          "exit": {
+            "value": "fade-out 0.3s ease-in",
+            "description": "Exit animation for toast"
+          }
+        }
+      },
+      "type": {
         "informative": {
           "background": {
-            "value": "{global.colors.informative.50}"
+            "value": "{color.primary.50}",
+            "description": "Background color for informative toasts"
           },
-          "text": {
-            "value": "{global.colors.informative.700}"
+          "icon": {
+            "color": {
+              "value": "{color.informative.600}",
+              "description": "Icon color for informative toasts"
+            }
           }
         },
         "success": {
           "background": {
-            "value": "{global.colors.success.50}"
+            "value": "{color.primary.50}",
+            "description": "Background color for success toasts"
           },
-          "text": {
-            "value": "{global.colors.success.700}"
+          "icon": {
+            "color": {
+              "value": "{color.success.700}",
+              "description": "Icon color for success toasts"
+            }
           }
         },
         "warning": {
           "background": {
-            "value": "{global.colors.warning.50}"
+            "value": "{color.warning.50}",
+            "description": "Background color for warning toasts"
           },
-          "text": {
-            "value": "{global.colors.warning.700}"
+          "icon": {
+            "color": {
+              "value": "{color.warning.600}",
+              "description": "Icon color for warning toasts"
+            }
           }
         },
         "error": {
           "background": {
-            "value": "{global.colors.error.50}"
+            "value": "{color.error.100}",
+            "description": "Background color for error toasts"
           },
-          "text": {
-            "value": "{global.colors.error.700}"
+          "icon": {
+            "color": {
+              "value": "{color.error.800}",
+              "description": "Icon color for error toasts"
+            }
+          }
+        }
+      },
+      "stacking": {
+        "gap": {
+          "value": "{space.8}",
+          "description": "Gap between multiple stacked toast notifications"
+        },
+        "maxCount": {
+          "value": "3",
+          "description": "Maximum number of toasts visible at one time"
+        }
+      },
+      "accessibility": {
+        "role": {
+          "value": "status",
+          "description": "ARIA role for the toast component"
+        },
+        "liveRegion": {
+          "value": "polite",
+          "description": "ARIA live region attribute for non-intrusive announcement"
+        },
+        "minDuration": {
+          "value": "5000ms",
+          "description": "Minimum duration to ensure readability for all users"
+        }
+      }
+    },
+    "badges": {
+      "sizes": {
+        "sm": {
+          "value": "12px"
+        },
+        "md": {
+          "value": "16px"
+        },
+        "lg": {
+          "value": "24px"
+        }
+      },
+      "types": {
+        "badge": {
+          "value": "Standard Badge"
+        },
+        "badge-icon": {
+          "value": "Badge with Icon"
+        }
+      },
+      "borderRadius": {
+        "value": "{global.radius.full}"
+      },
+      "padding": {
+        "value": "{global.spacing.8} {global.spacing.12}"
+      },
+      "background": {
+        "value": "{global.colors.primary.500}"
+      },
+      "text": {
+        "value": "{global.colors.base.white}"
+      }
+    },
+    "breadcrumb": {
+      "styles": {
+        "desktop": {
+          "maxLevels": {
+            "value": "3"
+          },
+          "truncation": {
+            "value": "true"
+          },
+          "color": {
+            "value": "{global.colors.neutral.900}"
+          },
+          "separatorColor": {
+            "value": "{global.colors.neutral.700}"
+          },
+          "fontSize": {
+            "value": "{global.typography.fontSizes.title-md}"
+          }
+        },
+        "mobile": {
+          "maxLevels": {
+            "value": "1"
+          },
+          "backNavigation": {
+            "value": "true"
+          },
+          "color": {
+            "value": "{global.colors.neutral.900}"
+          },
+          "fontSize": {
+            "value": "{global.typography.fontSizes.title-sm}"
           }
         }
       },
       "padding": {
-        "value": "{global.spacing.16}"
+        "value": "{global.spacing.8}"
       },
-      "borderRadius": {
-        "value": "{global.borderRadius.sm}"
+      "margin": {
+        "value": "{global.spacing.12}"
+      }
+    },
+    "cards": {
+      "variants": {
+        "default": {
+          "background": {
+            "value": "{global.colors.base.white}"
+          },
+          "border": {
+            "value": "{global.colors.neutral.200}"
+          },
+          "shadow": {
+            "value": "{global.elevations.sm}"
+          },
+          "borderRadius": {
+            "value": "8px"
+          },
+          "padding": {
+            "value": "24px"
+          }
+        },
+        "elevated": {
+          "background": {
+            "value": "{global.colors.base.white}"
+          },
+          "border": {
+            "value": "none"
+          },
+          "shadow": {
+            "value": "{global.elevations.lg}"
+          },
+          "borderRadius": {
+            "value": "12px"
+          },
+          "padding": {
+            "value": "24px"
+          }
+        },
+        "outlined": {
+          "background": {
+            "value": "{global.colors.base.white}"
+          },
+          "border": {
+            "value": "{global.colors.primary.200}"
+          },
+          "shadow": {
+            "value": "none"
+          },
+          "borderRadius": {
+            "value": "8px"
+          },
+          "padding": {
+            "value": "24px"
+          }
+        },
+        "info": {
+          "background": {
+            "value": "{global.colors.informative.50}"
+          },
+          "border": {
+            "value": "{global.colors.informative.100}"
+          },
+          "shadow": {
+            "value": "none"
+          },
+          "borderRadius": {
+            "value": "8px"
+          },
+          "padding": {
+            "value": "16px"
+          },
+          "iconColor": {
+            "value": "{global.colors.informative.500}"
+          }
+        },
+        "vcx": {
+          "background": {
+            "value": "{global.colors.base.white}"
+          },
+          "border": {
+            "value": "{global.colors.primary.100}"
+          },
+          "shadow": {
+            "value": "{global.elevations.sm}"
+          },
+          "borderRadius": {
+            "value": "12px"
+          },
+          "padding": {
+            "value": "24px"
+          },
+          "accentColor": {
+            "value": "{global.colors.primary.500}"
+          }
+        }
+      },
+      "header": {
+        "padding": {
+          "value": "0 0 16px 0"
+        },
+        "fontSize": {
+          "value": "18px"
+        },
+        "fontWeight": {
+          "value": "600"
+        }
+      },
+      "content": {
+        "padding": {
+          "value": "0"
+        },
+        "fontSize": {
+          "value": "14px"
+        },
+        "lineHeight": {
+          "value": "1.5"
+        },
+        "color": {
+          "value": "{global.colors.neutral.700}"
+        }
+      },
+      "footer": {
+        "padding": {
+          "value": "24px 0 0 0"
+        },
+        "borderTop": {
+          "value": "none"
+        },
+        "gap": {
+          "value": "16px"
+        }
+      },
+      "cta": {
+        "primary": {
+          "background": {
+            "value": "{global.colors.primary.500}"
+          },
+          "color": {
+            "value": "{global.colors.base.white}"
+          },
+          "borderRadius": {
+            "value": "6px"
+          },
+          "padding": {
+            "value": "10px 20px"
+          },
+          "fontSize": {
+            "value": "14px"
+          }
+        },
+        "secondary": {
+          "background": {
+            "value": "transparent"
+          },
+          "color": {
+            "value": "{global.colors.primary.500}"
+          },
+          "borderRadius": {
+            "value": "6px"
+          },
+          "padding": {
+            "value": "10px 20px"
+          },
+          "fontSize": {
+            "value": "14px"
+          }
+        }
+      },
+      "layout": {
+        "horizontal": {
+          "displayType": {
+            "value": "flex"
+          },
+          "gap": {
+            "value": "20px"
+          }
+        },
+        "vertical": {
+          "displayType": {
+            "value": "block"
+          },
+          "gap": {
+            "value": "16px"
+          }
+        }
+      }
+    },
+    "charts": {
+      "colors": {
+        "primary": {
+          "value": "{global.colors.primary.500}"
+        },
+        "secondary": {
+          "value": "{global.colors.secondary.500}"
+        },
+        "tertiary": {
+          "value": "{global.colors.tertiary.500}"
+        },
+        "palette": {
+          "color1": {
+            "value": "#2C8970"
+          },
+          "color2": {
+            "value": "#FA541C"
+          },
+          "color3": {
+            "value": "#B7A673"
+          },
+          "color4": {
+            "value": "#1890FF"
+          },
+          "color5": {
+            "value": "#52C41A"
+          },
+          "color6": {
+            "value": "#722ED1"
+          },
+          "color7": {
+            "value": "#EB2F96"
+          },
+          "color8": {
+            "value": "#FAAD14"
+          }
+        }
+      },
+      "typography": {
+        "title": {
+          "fontSize": {
+            "value": "18px"
+          },
+          "fontWeight": {
+            "value": "600"
+          },
+          "color": {
+            "value": "{global.colors.neutral.900}"
+          }
+        },
+        "subtitle": {
+          "fontSize": {
+            "value": "14px"
+          },
+          "fontWeight": {
+            "value": "400"
+          },
+          "color": {
+            "value": "{global.colors.neutral.700}"
+          }
+        },
+        "axis": {
+          "fontSize": {
+            "value": "12px"
+          },
+          "fontWeight": {
+            "value": "400"
+          },
+          "color": {
+            "value": "{global.colors.neutral.600}"
+          }
+        },
+        "label": {
+          "fontSize": {
+            "value": "12px"
+          },
+          "fontWeight": {
+            "value": "500"
+          },
+          "color": {
+            "value": "{global.colors.neutral.800}"
+          }
+        },
+        "tooltip": {
+          "fontSize": {
+            "value": "12px"
+          },
+          "fontWeight": {
+            "value": "400"
+          },
+          "color": {
+            "value": "{global.colors.base.white}"
+          }
+        }
+      },
+      "grid": {
+        "line": {
+          "color": {
+            "value": "{global.colors.neutral.200}"
+          },
+          "width": {
+            "value": "1px"
+          },
+          "style": {
+            "value": "dashed"
+          }
+        }
+      },
+      "axis": {
+        "line": {
+          "color": {
+            "value": "{global.colors.neutral.300}"
+          },
+          "width": {
+            "value": "1px"
+          }
+        },
+        "tick": {
+          "length": {
+            "value": "5px"
+          },
+          "color": {
+            "value": "{global.colors.neutral.300}"
+          }
+        }
+      },
+      "legend": {
+        "background": {
+          "value": "{global.colors.base.white}"
+        },
+        "border": {
+          "color": {
+            "value": "{global.colors.neutral.200}"
+          },
+          "width": {
+            "value": "1px"
+          },
+          "radius": {
+            "value": "4px"
+          }
+        },
+        "padding": {
+          "value": "8px 12px"
+        }
+      },
+      "tooltip": {
+        "background": {
+          "value": "rgba(0, 0, 0, 0.75)"
+        },
+        "border": {
+          "radius": {
+            "value": "4px"
+          }
+        },
+        "padding": {
+          "value": "8px 12px"
+        },
+        "shadow": {
+          "value": "{global.elevations.md}"
+        }
+      },
+      "types": {
+        "bar": {
+          "width": {
+            "value": "12px"
+          },
+          "gap": {
+            "value": "4px"
+          },
+          "radius": {
+            "value": "2px"
+          }
+        },
+        "line": {
+          "width": {
+            "value": "2px"
+          },
+          "point": {
+            "size": {
+              "value": "6px"
+            },
+            "hoverSize": {
+              "value": "8px"
+            }
+          }
+        },
+        "area": {
+          "opacity": {
+            "value": "0.5"
+          }
+        },
+        "pie": {
+          "innerRadius": {
+            "value": "0"
+          },
+          "donutRadius": {
+            "value": "70%"
+          },
+          "padding": {
+            "value": "10px"
+          }
+        }
+      },
+      "circular": {
+        "sizes": {
+          "sm": {
+            "diameter": {
+              "value": "64px"
+            },
+            "thickness": {
+              "value": "8px"
+            },
+            "fontSize": {
+              "value": "16px"
+            },
+            "fontWeight": {
+              "value": "600"
+            }
+          },
+          "md": {
+            "diameter": {
+              "value": "80px"
+            },
+            "thickness": {
+              "value": "10px"
+            },
+            "fontSize": {
+              "value": "18px"
+            },
+            "fontWeight": {
+              "value": "600"
+            }
+          }
+        },
+        "variants": {
+          "primary": {
+            "fillColor": {
+              "value": "{global.colors.primary.500}"
+            },
+            "backgroundColor": {
+              "value": "{global.colors.primary.100}"
+            },
+            "textColor": {
+              "value": "{global.colors.neutral.800}"
+            }
+          },
+          "secondary": {
+            "fillColor": {
+              "value": "{global.colors.secondary.500}"
+            },
+            "backgroundColor": {
+              "value": "{global.colors.secondary.100}"
+            },
+            "textColor": {
+              "value": "{global.colors.neutral.800}"
+            }
+          },
+          "tertiary": {
+            "fillColor": {
+              "value": "{global.colors.tertiary.500}"
+            },
+            "backgroundColor": {
+              "value": "{global.colors.tertiary.100}"
+            },
+            "textColor": {
+              "value": "{global.colors.neutral.800}"
+            }
+          },
+          "success": {
+            "fillColor": {
+              "value": "{global.colors.success.500}"
+            },
+            "backgroundColor": {
+              "value": "{global.colors.success.50}"
+            },
+            "textColor": {
+              "value": "{global.colors.neutral.800}"
+            }
+          },
+          "info": {
+            "fillColor": {
+              "value": "{global.colors.informative.500}"
+            },
+            "backgroundColor": {
+              "value": "{global.colors.informative.50}"
+            },
+            "textColor": {
+              "value": "{global.colors.neutral.800}"
+            }
+          }
+        }
+      }
+    },
+    "checkbox": {
+      "sizes": {
+        "sm": {
+          "size": {
+            "value": "16px"
+          },
+          "borderRadius": {
+            "value": "2px"
+          },
+          "fontSize": {
+            "value": "14px"
+          }
+        },
+        "md": {
+          "size": {
+            "value": "20px"
+          },
+          "borderRadius": {
+            "value": "3px"
+          },
+          "fontSize": {
+            "value": "16px"
+          }
+        }
+      },
+      "states": {
+        "default": {
+          "border": {
+            "value": "{global.colors.neutral.400}"
+          },
+          "background": {
+            "value": "transparent"
+          },
+          "labelColor": {
+            "value": "{global.colors.neutral.800}"
+          }
+        },
+        "hover": {
+          "border": {
+            "value": "{global.colors.primary.400}"
+          },
+          "background": {
+            "value": "transparent"
+          },
+          "labelColor": {
+            "value": "{global.colors.neutral.900}"
+          }
+        },
+        "focus": {
+          "border": {
+            "value": "{global.colors.primary.500}"
+          },
+          "background": {
+            "value": "{global.colors.primary.50}"
+          },
+          "labelColor": {
+            "value": "{global.colors.neutral.800}"
+          }
+        },
+        "checked": {
+          "border": {
+            "value": "{global.colors.primary.500}"
+          },
+          "background": {
+            "value": "{global.colors.primary.500}"
+          },
+          "labelColor": {
+            "value": "{global.colors.neutral.800}"
+          },
+          "icon": {
+            "value": "{global.colors.base.white}"
+          }
+        },
+        "disabled": {
+          "border": {
+            "value": "{global.colors.neutral.300}"
+          },
+          "background": {
+            "value": "{global.colors.neutral.200}"
+          },
+          "labelColor": {
+            "value": "{global.colors.neutral.500}"
+          },
+          "icon": {
+            "value": "{global.colors.neutral.500}"
+          }
+        },
+        "error": {
+          "border": {
+            "value": "{global.colors.error.500}"
+          },
+          "background": {
+            "value": "{global.colors.error.50}"
+          },
+          "labelColor": {
+            "value": "{global.colors.neutral.800}"
+          },
+          "icon": {
+            "value": "{global.colors.error.500}"
+          }
+        }
+      },
+      "spacing": {
+        "labelGap": {
+          "value": "8px"
+        },
+        "marginBottom": {
+          "value": "12px"
+        }
+      }
+    },
+    "radio": {
+      "sizes": {
+        "sm": {
+          "size": {
+            "value": "16px"
+          },
+          "innerSize": {
+            "value": "8px"
+          },
+          "fontSize": {
+            "value": "14px"
+          }
+        },
+        "md": {
+          "size": {
+            "value": "20px"
+          },
+          "innerSize": {
+            "value": "10px"
+          },
+          "fontSize": {
+            "value": "16px"
+          }
+        }
+      },
+      "states": {
+        "default": {
+          "border": {
+            "value": "{global.colors.neutral.400}"
+          },
+          "background": {
+            "value": "transparent"
+          },
+          "labelColor": {
+            "value": "{global.colors.neutral.800}"
+          }
+        },
+        "hover": {
+          "border": {
+            "value": "{global.colors.primary.400}"
+          },
+          "background": {
+            "value": "transparent"
+          },
+          "labelColor": {
+            "value": "{global.colors.neutral.900}"
+          }
+        },
+        "focus": {
+          "border": {
+            "value": "{global.colors.primary.500}"
+          },
+          "background": {
+            "value": "{global.colors.primary.50}"
+          },
+          "labelColor": {
+            "value": "{global.colors.neutral.800}"
+          }
+        },
+        "checked": {
+          "border": {
+            "value": "{global.colors.primary.500}"
+          },
+          "background": {
+            "value": "{global.colors.base.white}"
+          },
+          "dot": {
+            "value": "{global.colors.primary.500}"
+          },
+          "labelColor": {
+            "value": "{global.colors.neutral.800}"
+          }
+        },
+        "disabled": {
+          "border": {
+            "value": "{global.colors.neutral.300}"
+          },
+          "background": {
+            "value": "{global.colors.neutral.200}"
+          },
+          "dot": {
+            "value": "{global.colors.neutral.500}"
+          },
+          "labelColor": {
+            "value": "{global.colors.neutral.500}"
+          }
+        },
+        "error": {
+          "border": {
+            "value": "{global.colors.error.500}"
+          },
+          "background": {
+            "value": "{global.colors.error.50}"
+          },
+          "dot": {
+            "value": "{global.colors.error.500}"
+          },
+          "labelColor": {
+            "value": "{global.colors.neutral.800}"
+          }
+        }
+      },
+      "spacing": {
+        "labelGap": {
+          "value": "8px"
+        },
+        "marginBottom": {
+          "value": "12px"
+        }
+      }
+    },
+    "alert-sticky": {
+      "base": {
+        "padding": {
+          "value": "{space.16}",
+          "description": "Default padding for alert components"
+        },
+        "borderRadius": {
+          "value": "{radius.sm}",
+          "description": "Border radius for alert container"
+        },
+        "gap": {
+          "value": "{space.16}",
+          "description": "Gap between alert elements"
+        },
+        "text": {
+          "color": {
+            "value": "{color.neutral.800}",
+            "description": "Text color for alert content"
+          },
+          "typography": {
+            "value": "{typography.body.md.regular}",
+            "description": "Typography style for alert content"
+          },
+          "mixBlendMode": {
+            "value": "multiply",
+            "description": "Blend mode for text in alerts"
+          }
+        },
+        "icon": {
+          "size": {
+            "value": "24px",
+            "description": "Size of the alert type icon"
+          },
+          "padding": {
+            "value": "1px",
+            "description": "Padding for the alert icon container"
+          }
+        },
+        "closeButton": {
+          "size": {
+            "value": "24px",
+            "description": "Size of the close button"
+          },
+          "padding": {
+            "value": "6px",
+            "description": "Padding for the close button icon"
+          },
+          "iconColor": {
+            "value": "{color.neutral.800}",
+            "description": "Color of the close icon"
+          }
+        },
+        "shadow": {
+          "value": [
+            {
+              "x": "0",
+              "y": "1px",
+              "blur": "2px",
+              "spread": "0",
+              "color": "rgba(0,0,0,0.06)"
+            },
+            {
+              "x": "0",
+              "y": "1px",
+              "blur": "3px",
+              "spread": "0",
+              "color": "rgba(0,0,0,0.10)"
+            }
+          ],
+          "description": "Shadow applied to alert container"
+        }
+      },
+      "type": {
+        "informative": {
+          "background": {
+            "value": "{color.primary.50}",
+            "description": "Background color for informative alerts"
+          },
+          "icon": {
+            "color": {
+              "value": "{color.informative.600}",
+              "description": "Icon color for informative alerts"
+            }
+          }
+        },
+        "success": {
+          "background": {
+            "value": "{color.primary.50}",
+            "description": "Background color for success alerts"
+          },
+          "icon": {
+            "color": {
+              "value": "{color.success.700}",
+              "description": "Icon color for success alerts"
+            }
+          }
+        },
+        "warning": {
+          "background": {
+            "value": "{color.warning.50}",
+            "description": "Background color for warning alerts"
+          },
+          "icon": {
+            "color": {
+              "value": "{color.warning.600}",
+              "description": "Icon color for warning alerts"
+            }
+          }
+        },
+        "error": {
+          "background": {
+            "value": "{color.error.100}",
+            "description": "Background color for error alerts"
+          },
+          "icon": {
+            "color": {
+              "value": "{color.error.800}",
+              "description": "Icon color for error alerts"
+            }
+          }
+        }
+      },
+      "link": {
+        "color": {
+          "value": "{color.primary.900}",
+          "description": "Text color for links in alerts"
+        },
+        "typography": {
+          "value": "{typography.body.md.regular}",
+          "description": "Typography style for links in alerts"
+        },
+        "textDecoration": {
+          "value": "underline",
+          "description": "Text decoration for links in alerts"
+        },
+        "gap": {
+          "value": "{space.8}",
+          "description": "Gap between link text and icon"
+        },
+        "icon": {
+          "size": {
+            "value": "16px",
+            "description": "Size of the arrow icon in links"
+          },
+          "color": {
+            "value": "{color.primary.900}",
+            "description": "Color of the link icon"
+          }
+        }
+      },
+      "responsive": {
+        "desktop": {
+          "width": {
+            "value": "100%",
+            "description": "Width of alert on desktop"
+          },
+          "maxWidth": {
+            "value": "720px",
+            "description": "Maximum width of alert on desktop"
+          },
+          "layout": {
+            "singleLine": {
+              "value": "flex",
+              "description": "Single line layout with all elements in a row"
+            },
+            "multiLine": {
+              "description": "Multi-line layout with message and link stacked"
+            }
+          }
+        },
+        "mobile": {
+          "width": {
+            "value": "100%",
+            "description": "Width of alert on mobile"
+          },
+          "maxWidth": {
+            "value": "384px",
+            "description": "Maximum width of alert on mobile"
+          },
+          "layout": {
+            "description": "Mobile-specific stacked layout"
+          }
+        }
+      },
+      "accessibility": {
+        "role": {
+          "value": "alert",
+          "description": "ARIA role for the alert component"
+        },
+        "liveRegion": {
+          "value": "assertive",
+          "description": "ARIA live region attribute for immediate announcement"
+        },
+        "focusable": {
+          "description": "Ensures close button is keyboard accessible"
+        }
       }
     }
   }

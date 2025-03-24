@@ -1,67 +1,134 @@
 import React from "react";
 import "./Avatar.css";
 
+export type AvatarSize = "sm" | "md" | "lg";
+export type AvatarType = "icon" | "image" | "text";
+
 export interface AvatarProps {
+  /**
+   * Tipo de avatar a mostrar
+   */
+  type: AvatarType;
+
   /**
    * Tamaño del avatar
    */
-  size?: "sm" | "md" | "lg";
+  size?: AvatarSize;
+
   /**
-   * Tipo de avatar
+   * Imagen URL (sólo para type="image")
    */
-  type: "image" | "icon" | "text";
+  src?: string;
+
   /**
-   * URL de la imagen (solo para type="image")
-   */
-  imageUrl?: string;
-  /**
-   * Texto a mostrar (solo para type="text")
-   */
-  text?: string;
-  /**
-   * Icono a mostrar (solo para type="icon")
-   */
-  icon?: React.ReactNode;
-  /**
-   * Clase CSS adicional
-   */
-  className?: string;
-  /**
-   * Alt text para la imagen (accesibilidad)
+   * Texto alternativo para la imagen o descripción del avatar para lectores de pantalla
    */
   alt?: string;
+
+  /**
+   * Iniciales o texto corto (sólo para type="text")
+   */
+  text?: string;
+
+  /**
+   * Icono personalizado como nodo hijo (sólo para type="icon")
+   */
+  icon?: React.ReactNode;
+
+  /**
+   * Clases CSS adicionales
+   */
+  className?: string;
+
+  /**
+   * Función que se ejecuta al hacer clic en el avatar
+   */
+  onClick?: () => void;
 }
 
 /**
- * Componente Avatar que muestra una imagen, icono o texto en un círculo
+ * Componente Avatar para representar usuarios, entidades u objetos
  */
 export const Avatar: React.FC<AvatarProps> = ({
-  size = "md",
   type,
-  imageUrl,
-  text,
+  size = "md",
+  src,
+  alt = "Avatar",
+  text = "",
   icon,
   className = "",
-  alt = "Avatar",
+  onClick,
 }) => {
-  const renderContent = () => {
+  const baseClass = "qida-avatar";
+  const sizeClass = `${baseClass}--${size}`;
+  const typeClass = `${baseClass}--${type}`;
+
+  // Generar iniciales si no se proporcionan (por ejemplo: "John Doe" -> "JD")
+  const getInitials = () => {
+    if (text) return text.substring(0, 2).toUpperCase();
+    if (alt && alt !== "Avatar") {
+      return alt
+        .split(" ")
+        .map((word) => word[0])
+        .join("")
+        .substring(0, 2)
+        .toUpperCase();
+    }
+    return "U"; // Usuario por defecto
+  };
+
+  // Determinar el contenido del avatar según el tipo
+  const renderAvatarContent = () => {
     switch (type) {
       case "image":
-        return imageUrl ? <img src={imageUrl} alt={alt} /> : null;
-      case "icon":
-        return icon;
+        return (
+          <img
+            src={
+              src ||
+              "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300&q=80"
+            }
+            alt={alt}
+            className={`${baseClass}__image`}
+          />
+        );
+
       case "text":
-        return text ? text.substring(0, 2) : null;
+        return <span className={`${baseClass}__text`}>{getInitials()}</span>;
+
+      case "icon":
+        return (
+          <span className={`${baseClass}__icon`}>
+            {icon || <DefaultUserIcon />}
+          </span>
+        );
+
       default:
         return null;
     }
   };
 
   return (
-    <div className={`avatar avatar-${size} avatar-${type} ${className}`}>
-      {renderContent()}
+    <div
+      className={`${baseClass} ${sizeClass} ${typeClass} ${className}`}
+      onClick={onClick}
+      role={onClick ? "button" : "img"}
+      aria-label={alt}
+      tabIndex={onClick ? 0 : undefined}
+    >
+      {renderAvatarContent()}
     </div>
   );
 };
+
+// Icono de usuario por defecto
+const DefaultUserIcon: React.FC = () => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path d="M12 12C14.21 12 16 10.21 16 8C16 5.79 14.21 4 12 4C9.79 4 8 5.79 8 8C8 10.21 9.79 12 12 12ZM12 14C9.33 14 4 15.34 4 18V20H20V18C20 15.34 14.67 14 12 14Z" />
+  </svg>
+);
 
 export default Avatar;

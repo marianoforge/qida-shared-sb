@@ -1,0 +1,242 @@
+/* Estilos específicos para las historias de Storybook */
+.toast-demo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 80px 20px 20px; /* Padding superior amplio para el toast */
+  position: relative;
+  min-height: 300px; /* Altura mínima para evitar cambios bruscos de layout */
+}
+
+/* Área reservada para el toast, fuera del flujo normal */
+.toast-demo-toast-area {
+  position: absolute;
+  top: 20px; /* Posición fija en la parte superior */
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  min-height: 60px; /* Altura mínima para evitar cambios de layout */
+  pointer-events: none; /* Para que no interfiera con los clics */
+}
+
+.toast-demo-toast {
+  /* El toast estará centrado en esta área */
+  max-width: 100%;
+}
+
+.toast-demo-text {
+  margin-bottom: 20px;
+  font-family: "Aeonik", sans-serif;
+  color: #333;
+  text-align: center;
+}
+
+.toast-demo-position-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.toast-demo-button {
+  padding: 10px 16px;
+  background-color: #10b981;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: "Aeonik", sans-serif;
+  font-size: 16px;
+  transition: background-color 0.2s;
+}
+
+.toast-demo-button:hover {
+  background-color: #059669;
+}
+
+/* Botones de variantes */
+.toast-demo-button--informative {
+  background-color: #0d9488;
+}
+
+.toast-demo-button--success {
+  background-color: #15803d;
+}
+
+.toast-demo-button--warning {
+  background-color: #ca8a04;
+}
+
+.toast-demo-button--error {
+  background-color: #991b1b;
+}
+
+.toast-demo-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 300px;
+}
+
+/* Ejemplo de contexto de aplicación */
+.toast-demo-context {
+  margin-top: 40px;
+  width: 100%;
+  border-top: 1px solid #e5e7eb;
+  padding-top: 20px;
+}
+
+.toast-demo-app-example {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  background-color: #f9fafb;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 16px;
+  border: 1px solid #e5e7eb;
+}
+
+.toast-demo-app-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.toast-demo-app-header {
+  height: 40px;
+  background-color: #e5e7eb;
+}
+
+.toast-demo-app-body {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toast-demo-app-toast {
+  position: absolute;
+  z-index: 20;
+}
+
+.toast-demo-app-toast--right-bottom {
+  bottom: 16px;
+  right: 16px;
+}
+
+/* Estilos para toasts apilados */
+.toast-demo-toast--stack {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.toast-demo-stacked-toast {
+  margin-bottom: -30px; /* Superposición */
+}
+
+/* Animaciones específicas para la demo */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 10px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+.toast-demo-toast .qida-toast--visible {
+  animation: fadeInUp 0.3s ease forwards;
+}
+
+/* Área para múltiples toasts */
+.toast-demo-multi-toast-area {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 200px; /* Espacio suficiente para varios toasts */
+  padding-top: 20px;
+  pointer-events: none;
+}
+
+/* Estilo para cada toast individual en el grupo */
+.toast-demo-multi-toast {
+  margin-bottom: 8px;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+/* Posición escalonada para cada toast según su índice */
+.toast-demo-multi-toast--0 {
+  z-index: 50;
+  transform: translateY(0);
+}
+
+.toast-demo-multi-toast--1 {
+  z-index: 49;
+  transform: translateY(45px); /* Cada toast separado por ~45px */
+}
+
+.toast-demo-multi-toast--2 {
+  z-index: 48;
+  transform: translateY(90px);
+}
+
+.toast-demo-multi-toast--3 {
+  z-index: 47;
+  transform: translateY(135px);
+}
+
+/* Estilos para las instrucciones */
+.toast-demo-instructions {
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+  opacity: 1;
+  transform: translateY(0);
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.toast-demo-instructions--hidden {
+  opacity: 0;
+  transform: translateY(-10px);
+  /* No usamos display: none para mantener la animación */
+  height: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+/* Estilos para los controles (instrucciones y botón) */
+.toast-demo-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.toast-demo-controls--hidden {
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none; /* Evita interacciones cuando está oculto */
+}
